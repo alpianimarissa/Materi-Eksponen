@@ -1,0 +1,1489 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eksponen - Petualangan Matematika 🌟</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+  <!-- KaTeX for Beautiful Math -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+
+  <style>
+    :root {
+      --blue: #3B82F6;
+      --blue-light: #93C5FD;
+      --blue-pale: #EFF6FF;
+      --purple: #8B5CF6;
+      --purple-light: #C7D2FE;
+      --purple-pale: #EEF2F6;
+      --teal: #06B6D4;
+      --teal-light: #67E8F9;
+      --teal-pale: #ECFEFF;
+      --yellow: #F59E0B;
+      --yellow-light: #FDE68A;
+      --yellow-pale: #FFFBEB;
+      --orange: #EA580C;
+      --dark: #0F172A;
+      --text: #1E293B;
+      --bg: #F4F7FB;
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+    }
+    .font-fun {
+      font-family: 'Fredoka', sans-serif;
+    }
+
+    /* Floating Animations for playful elements */
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-8px) rotate(3deg); }
+    }
+    .floating-deco {
+      animation: float 4s ease-in-out infinite;
+    }
+
+    /* Smooth transition for pages */
+    .page-node {
+      transition: all 0.3s ease-in-out;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between pb-6">
+
+  <!-- Top Score Bar -->
+  <div class="fixed top-4 right-4 z-50 flex gap-2">
+    <div id="score-chip" class="bg-gradient-to-r from-yellow-400 to-amber-500 text-slate-900 font-fun font-bold px-4 py-2 rounded-full shadow-lg flex items-center gap-1 border-2 border-white animate-bounce">
+      ⭐ <span id="current-score">0</span> Poin
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="bg-gradient-to-r from-[#3B82F6] via-[#8B5CF6] to-[#EA580C] text-white py-6 px-6 text-center rounded-b-[30px] shadow-md">
+    <div class="max-w-4xl mx-auto">
+      <span class="bg-white/30 text-white font-bold text-xs px-4 py-1 rounded-full uppercase tracking-wider font-fun">Review Booster & Penguat Memori Eksponen Kelas 9 ➔ 10 🧠</span>
+      <h1 class="text-2xl md:text-4xl font-extrabold font-fun mt-2 drop-shadow-md">Petualangan Eksponen Seru! ⚡</h1>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-4xl w-full mx-auto px-4 mt-6 flex-grow">
+    
+    <!-- Navigation Timeline / Tabs -->
+    <div class="flex overflow-x-auto gap-2 pb-3 mb-6 scrollbar-hide border-b border-blue-100 font-fun text-sm font-semibold">
+      <button onclick="jumpToTab('tujuan')" id="tab-tujuan" class="tab-btn px-4 py-2 rounded-full whitespace-nowrap bg-blue-600 text-white shadow-sm">🎯 1. Tujuan</button>
+      <button onclick="jumpToTab('warmup')" id="tab-warmup" class="tab-btn px-4 py-2 rounded-full whitespace-nowrap bg-white text-blue-800 hover:bg-blue-100">🔥 2. Warm-Up</button>
+      <button onclick="jumpToTab('nyata')" id="tab-nyata" class="tab-btn px-4 py-2 rounded-full whitespace-nowrap bg-white text-blue-800 hover:bg-blue-100">🌍 3. Dunia Nyata</button>
+      <button onclick="jumpToTab('konsep')" id="tab-konsep" class="tab-btn px-4 py-2 rounded-full whitespace-nowrap bg-white text-blue-800 hover:bg-blue-100">📖 4. Konsep Lengkap</button>
+      <button onclick="jumpToTab('latihan')" id="tab-latihan" class="tab-btn px-4 py-2 rounded-full whitespace-nowrap bg-white text-blue-800 hover:bg-blue-100">⚔️ 5. Latihan Terbimbing</button>
+      <button onclick="jumpToTab('mandiri')" id="tab-mandiri" class="tab-btn px-4 py-2 rounded-full whitespace-nowrap bg-white text-blue-800 hover:bg-blue-100">✏️ 6. Latihan Mandiri (15)</button>
+      <button onclick="jumpToTab('refleksi')" id="tab-refleksi" class="tab-btn px-4 py-2 rounded-full whitespace-nowrap bg-white text-blue-800 hover:bg-blue-100">💭 7. Refleksi</button>
+      <button onclick="jumpToTab('kesimpulan')" id="tab-kesimpulan" class="tab-btn px-4 py-2 rounded-full whitespace-nowrap bg-white text-blue-800 hover:bg-blue-100">🏆 8. Kesimpulan</button>
+    </div>
+
+    <!-- ================= SECTION 1: TUJUAN ================= -->
+    <section id="sec-tujuan" class="page-node block animate-fadeIn">
+      <div class="bg-white rounded-3xl p-6 shadow-md border-2 border-blue-200">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="text-4xl">🎯</div>
+          <div>
+            <h2 class="text-xl md:text-2xl font-black text-[#3B82F6] font-fun">Yang Akan Kamu Kuasai Hari Ini!</h2>
+            <p class="text-xs text-gray-500">Misi persiapan hebat melangkah menuju Kelas 10 SMA.</p>
+          </div>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+          <div class="bg-[#EFF6FF] p-4 rounded-2xl border-l-4 border-blue-500 flex gap-3 items-start">
+            <span class="text-2xl">⚡</span>
+            <div>
+              <h3 class="font-bold text-blue-700 font-fun text-sm md:text-base">Mengenal Eksponen Aljabar</h3>
+              <p class="text-xs md:text-sm text-gray-600 mt-1">Menguasai bentuk dasar $a^n$ dan operasi variabel aljabar berpangkat yang sering keluar di awal kelas 10.</p>
+            </div>
+          </div>
+          <div class="bg-[#EEF2F6] p-4 rounded-2xl border-l-4 border-purple-500 flex gap-3 items-start">
+            <span class="text-2xl">🌿</span>
+            <div>
+              <h3 class="font-bold text-purple-700 font-fun text-sm md:text-base">Sifat-Sifat Penggabungan Kompleks</h3>
+              <p class="text-xs md:text-sm text-gray-600 mt-1">Memahami cara perkalian, pembagian, dan pemangkatan ganda eksponen secara taktis tanpa bingung.</p>
+            </div>
+          </div>
+          <div class="bg-[#ECFEFF] p-4 rounded-2xl border-l-4 border-teal-500 flex gap-3 items-start">
+            <span class="text-2xl">🔮</span>
+            <div>
+              <h3 class="font-bold text-teal-700 font-fun text-sm md:text-base">Keajaiban Pangkat Negatif & Nol</h3>
+              <p class="text-xs md:text-sm text-gray-600 mt-1">Menguasai trik pecahan balik untuk pangkat negatif serta pembuktian nilai eksponen nol.</p>
+            </div>
+          </div>
+          <div class="bg-[#FFFBEB] p-4 rounded-2xl border-l-4 border-yellow-500 flex gap-3 items-start">
+            <span class="text-2xl">👾</span>
+            <div>
+              <h3 class="font-bold text-amber-700 font-fun text-sm md:text-base">Akar & Persamaan Eksponen</h3>
+              <p class="text-xs md:text-sm text-gray-600 mt-1">Menjembatani pangkat pecahan dengan bentuk akar serta penyelesaian persamaan matematika eksponensial.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-blue-50 rounded-2xl p-4 border border-blue-100 flex flex-col md:flex-row items-center gap-4 justify-between">
+          <div class="flex items-center gap-3 text-sm text-slate-900">
+            <span class="text-2xl animate-pulse">✨</span>
+            <span>Siap memulai misi menaklukkan puncak eksponen dan mengumpulkan koin terbanyak?</span>
+          </div>
+          <button onclick="jumpToTab('warmup')" class="bg-gradient-to-r from-blue-500 to-purple-600 hover:scale-105 transition-all text-white font-bold px-6 py-2.5 rounded-full font-fun text-sm flex items-center gap-2">
+            Mulai Warm-Up! 🚀
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SECTION 2: WARM-UP ================= -->
+    <section id="sec-warmup" class="page-node hidden animate-fadeIn">
+      <div class="bg-white rounded-3xl p-6 shadow-md border-2 border-amber-200">
+        <div class="flex items-center gap-3 mb-2">
+          <div class="text-4xl">🔥</div>
+          <div>
+            <h2 class="text-xl md:text-2xl font-black text-amber-500 font-fun">Warm-Up: Logika Perpangkatan!</h2>
+            <p class="text-xs text-gray-500">Ayo uji pemikiran dasarmu sebelum kita masuk ke rumus eksponen tingkat tinggi SMA.</p>
+          </div>
+        </div>
+
+        <!-- Progress Mini-Bar for Warmup -->
+        <div class="w-full bg-gray-100 rounded-full h-2 mb-6 mt-4">
+          <div id="wu-progress" class="bg-amber-400 h-2 rounded-full transition-all" style="width: 25%"></div>
+        </div>
+
+        <!-- SOAL WARM-UP CARDS -->
+        <div id="warmup-container">
+          
+          <!-- Warmup 1 -->
+          <div id="wu-card-1" class="wu-subcard block">
+            <span class="bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1 rounded-full font-fun">TANTANGAN 1 DARI 4</span>
+            <p class="font-extrabold text-base md:text-lg text-slate-900 mt-3 leading-relaxed">
+              Berapakah hasil dari perkalian angka <strong class="text-blue-500">2</strong> sebanyak tiga kali berikut?
+            </p>
+            
+            <div class="bg-blue-50 rounded-2xl p-4 my-4 flex items-center justify-center gap-2 text-xl font-fun font-bold">
+              <span class="bg-blue-200 px-3 py-1 rounded-lg">2</span> <span>×</span> <span class="bg-blue-200 px-3 py-1 rounded-lg">2</span> <span>×</span> <span class="bg-blue-200 px-3 py-1 rounded-lg">2</span> <span>=</span> <span>?</span>
+            </div>
+
+            <div class="flex gap-3 items-center flex-wrap justify-center mt-4">
+              <input type="number" id="wu-ans-1" placeholder="Jawabanmu..." class="w-36 px-4 py-2 rounded-xl border-2 border-blue-200 focus:border-blue-500 text-center font-bold font-fun outline-none">
+              <button onclick="submitWarmup(1, 8)" class="bg-[#8B5CF6] text-white px-5 py-2 rounded-xl font-bold font-fun text-sm hover:bg-purple-700 transition">Periksa ✓</button>
+            </div>
+            <div id="wu-fb-1" class="mt-4 p-3 rounded-xl text-xs md:text-sm font-semibold hidden"></div>
+          </div>
+
+          <!-- Warmup 2 -->
+          <div id="wu-card-2" class="wu-subcard hidden">
+            <span class="bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1 rounded-full font-fun">TANTANGAN 2 DARI 4</span>
+            <p class="font-extrabold text-base md:text-lg text-slate-900 mt-3 leading-relaxed">
+              Berapakah hasil perkalian angka <strong class="text-purple-600">3</strong> sebanyak dua kali berikut?
+            </p>
+            
+            <div class="bg-blue-50 rounded-2xl p-4 my-4 flex items-center justify-center gap-2 text-xl font-fun font-bold">
+              <span class="bg-purple-200 px-3 py-1 rounded-lg">3</span> <span>×</span> <span class="bg-purple-200 px-3 py-1 rounded-lg">3</span> <span>=</span> <span>?</span>
+            </div>
+
+            <div class="flex gap-3 items-center flex-wrap justify-center mt-4">
+              <input type="number" id="wu-ans-2" placeholder="Jawabanmu..." class="w-36 px-4 py-2 rounded-xl border-2 border-blue-200 focus:border-blue-500 text-center font-bold font-fun outline-none">
+              <button onclick="submitWarmup(2, 9)" class="bg-[#8B5CF6] text-white px-5 py-2 rounded-xl font-bold font-fun text-sm hover:bg-purple-700 transition">Periksa ✓</button>
+            </div>
+            <div id="wu-fb-2" class="mt-4 p-3 rounded-xl text-xs md:text-sm font-semibold hidden"></div>
+          </div>
+
+          <!-- Warmup 3 -->
+          <div id="wu-card-3" class="wu-subcard hidden">
+            <span class="bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1 rounded-full font-fun">TANTANGAN 3 DARI 4</span>
+            <p class="font-extrabold text-base md:text-lg text-slate-900 mt-3 leading-relaxed">
+              Jika sebuah mikroba membelah menjadi 2 setiap jam, dari 1 mikroba setelah 4 jam ia akan membelah sebanyak:
+            </p>
+            
+            <div class="bg-blue-50 rounded-2xl p-4 my-4 flex items-center justify-center gap-2 text-xl font-fun font-bold">
+              <span>2</span> <span>×</span> <span>2</span> <span>×</span> <span>2</span> <span>×</span> <span>2</span> <span>=</span> <span>?</span>
+            </div>
+
+            <div class="flex gap-3 items-center flex-wrap justify-center mt-4">
+              <input type="number" id="wu-ans-3" placeholder="Jawabanmu..." class="w-36 px-4 py-2 rounded-xl border-2 border-blue-200 focus:border-blue-500 text-center font-bold font-fun outline-none">
+              <button onclick="submitWarmup(3, 16)" class="bg-[#8B5CF6] text-white px-5 py-2 rounded-xl font-bold font-fun text-sm hover:bg-purple-700 transition">Periksa ✓</button>
+            </div>
+            <div id="wu-fb-3" class="mt-4 p-3 rounded-xl text-xs md:text-sm font-semibold hidden"></div>
+          </div>
+
+          <!-- Warmup 4 -->
+          <div id="wu-card-4" class="wu-subcard hidden">
+            <span class="bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1 rounded-full font-fun">TANTANGAN 4 DARI 4</span>
+            <p class="font-extrabold text-base md:text-lg text-slate-900 mt-3 leading-relaxed">
+              Berapakah angka positif misterius yang jika dikalikan dengan dirinya sendiri menghasilkan <strong class="text-teal-500">25</strong>?
+            </p>
+            
+            <div class="bg-blue-50 rounded-2xl p-4 my-4 flex items-center justify-center gap-2 text-xl font-fun font-bold">
+              <span class="border-2 border-dashed border-blue-400 px-4 py-1 rounded-lg">?</span> <span>×</span> <span class="border-2 border-dashed border-blue-400 px-4 py-1 rounded-lg">?</span> <span>=</span> <span class="bg-teal-200 px-3 py-1 rounded-lg">25</span>
+            </div>
+
+            <div class="flex gap-3 items-center flex-wrap justify-center mt-4">
+              <input type="number" id="wu-ans-4" placeholder="Jawabanmu..." class="w-36 px-4 py-2 rounded-xl border-2 border-blue-200 focus:border-blue-500 text-center font-bold font-fun outline-none">
+              <button onclick="submitWarmup(4, 5)" class="bg-[#8B5CF6] text-white px-5 py-2 rounded-xl font-bold font-fun text-sm hover:bg-purple-700 transition">Periksa ✓</button>
+            </div>
+            <div id="wu-fb-4" class="mt-4 p-3 rounded-xl text-xs md:text-sm font-semibold hidden"></div>
+          </div>
+
+        </div>
+
+        <!-- Next / Prev Sub-Navigation for Warmup -->
+        <div class="flex justify-between items-center mt-6 pt-4 border-t border-gray-100">
+          <button id="btn-wu-prev" onclick="navWarmup(-1)" class="text-xs md:text-sm font-bold text-gray-400 font-fun cursor-not-allowed" disabled>← Sebelumnya</button>
+          <button id="btn-wu-next" onclick="navWarmup(1)" class="text-xs md:text-sm font-bold text-[#8B5CF6] hover:underline font-fun hidden">Tantangan Berikutnya →</button>
+          <button id="btn-wu-finish" onclick="jumpToTab('nyata')" class="bg-emerald-500 text-white font-bold px-4 py-2 rounded-full font-fun text-xs md:text-sm shadow hidden">Lanjut ke Penerapan Nyata! 🚀</button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= SECTION 3: PENERAPAN NYATA ================= -->
+    <section id="sec-nyata" class="page-node hidden animate-fadeIn">
+      <div class="bg-white rounded-3xl p-6 shadow-md border-2 border-blue-200">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="text-4xl">🌍</div>
+          <div>
+            <h2 class="text-xl md:text-2xl font-black text-blue-500 font-fun">Eksponen di Dunia Nyata!</h2>
+            <p class="text-xs text-gray-500">Konsep perpangkatan ternyata ada di sekeliling kita untuk mempermudah perhitungan raksasa!</p>
+          </div>
+        </div>
+
+        <div class="space-y-6">
+          <!-- Scenario 1: Pembelahan Sel -->
+          <div class="bg-[#EFF6FF] p-5 rounded-2xl border-l-8 border-blue-500">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-2xl">🦠</span>
+              <h3 class="font-extrabold text-slate-900 font-fun text-base md:text-lg">1. Perkembangbiakan Bakteri</h3>
+            </div>
+            <p class="text-xs md:text-sm text-gray-600 leading-relaxed">
+              Satu jenis bakteri membelah diri menjadi <strong class="text-blue-600">dua</strong> setiap detik. 
+              Mula-mula ada 1 bakteri. Setelah 5 detik, jumlah bakteri dapat dengan mudah kita tulis menggunakan perpangkatan:
+            </p>
+            
+            <div class="bg-white border border-blue-100 rounded-xl p-3 my-3 text-center text-sm font-fun">
+              Jumlah Bakteri = <span class="bg-purple-100 text-purple-700 px-2.5 py-1 rounded font-bold">$2^5$</span> = $32$ bakteri!
+            </div>
+
+            <p class="text-xs text-gray-500 font-medium">💡 Bayangkan jika kita harus menghitung manual perkembangbiakan bakteri setelah 24 jam. Eksponen membuat penulisan angka raksasa menjadi sangat simpel!</p>
+          </div>
+
+          <!-- Scenario 2: Penyimpanan Digital -->
+          <div class="bg-[#EEF2F6] p-5 rounded-2xl border-l-8 border-purple-500">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-2xl">💻</span>
+              <h3 class="font-extrabold text-slate-900 font-fun text-base md:text-lg">2. Ukuran Penyimpanan HP / Komputer</h3>
+            </div>
+            <p class="text-xs md:text-sm text-gray-600 leading-relaxed">
+              Memori flash di HP atau konsol game milikmu memiliki kapasitas seperti 16 GB, 32 GB, 64 GB, hingga 128 GB. Tahukah kamu bahwa angka-angka tersebut merupakan hasil dari perpangkatan berbasis <strong class="text-purple-600">2</strong>?
+            </p>
+            
+            <div class="bg-white border border-purple-100 rounded-xl p-3 my-3 text-center text-sm font-fun text-xs md:text-sm">
+              $2^4 = 16$ GB, &nbsp; $2^5 = 32$ GB, &nbsp; $2^6 = 64$ GB, &nbsp; $2^7 = 128$ GB!
+            </div>
+            
+            <p class="text-xs text-gray-500 font-medium">💡 Dalam sistem biner digital komputer, segala data dihitung menggunakan basis pangkat 2.</p>
+          </div>
+
+          <!-- Scenario 3: Gempa Bumi -->
+          <div class="bg-[#FFFBEB] p-5 rounded-2xl border-l-8 border-yellow-500">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-2xl">🌋</span>
+              <h3 class="font-extrabold text-slate-900 font-fun text-base md:text-lg">3. Skala Gempa (Richter)</h3>
+            </div>
+            <p class="text-xs md:text-sm text-gray-600 leading-relaxed">
+              Setiap kenaikan 1 skala Richter pada kekuatan gempa, getaran yang dirasakan sebenarnya melonjak sebesar kelipatan <strong class="text-amber-600">10 kali lipat</strong>!
+            </p>
+            
+            <div class="bg-white border border-yellow-100 rounded-xl p-3 my-3 text-center text-sm font-fun">
+              Gempa skala 6 Richter berkekuatan <span class="bg-yellow-100 text-yellow-800 px-2 py-0.5 rounded font-bold">$10^2$ (100) kali lipat</span> lebih merusak dari skala 4 Richter!
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-6 pt-4 border-t border-gray-100 text-center">
+          <button onclick="jumpToTab('konsep')" class="bg-gradient-to-r from-[#3B82F6] to-[#06B6D4] text-white font-bold px-6 py-2.5 rounded-full font-fun text-sm shadow hover:scale-105 transition">
+            Yuk, Bongkar Rahasia Konsep Eksponen! 🔬
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SECTION 4: KONSEP LENGKAP ================= -->
+    <section id="sec-konsep" class="page-node hidden animate-fadeIn">
+      <div class="bg-white rounded-3xl p-6 shadow-md border-2 border-blue-200">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="text-4xl">📖</div>
+          <div>
+            <h2 class="text-xl md:text-2xl font-black text-blue-500 font-fun">Konsep Lengkap Eksponen</h2>
+            <p class="text-xs text-gray-500">Pelajari aturan main bilangan berpangkat tingkat lanjut agar persiapan kelas 10 makin mantap!</p>
+          </div>
+        </div>
+
+        <!-- Subtabs for Concept page -->
+        <div class="flex flex-wrap gap-2 mb-6 bg-blue-50 p-1.5 rounded-2xl border border-blue-100">
+          <button onclick="switchConceptTab('c1')" id="ctab-c1" class="concept-tab-btn flex-1 py-2 text-xs font-bold rounded-xl transition bg-white text-slate-900 font-fun shadow-sm">📐 1. Definisi & Aljabar</button>
+          <button onclick="switchConceptTab('c2')" id="ctab-c2" class="concept-tab-btn flex-1 py-2 text-xs font-bold rounded-xl transition text-blue-800 hover:bg-white/50 font-fun">⚡ 2. Sifat Utama</button>
+          <button onclick="switchConceptTab('c3')" id="ctab-c3" class="concept-tab-btn flex-1 py-2 text-xs font-bold rounded-xl transition text-blue-800 hover:bg-white/50 font-fun">🔮 3. Nol & Negatif</button>
+          <button onclick="switchConceptTab('c4')" id="ctab-c4" class="concept-tab-btn flex-1 py-2 text-xs font-bold rounded-xl transition text-blue-800 hover:bg-white/50 font-fun">📐 4. Pangkat Pecahan & Akar</button>
+        </div>
+
+        <!-- Concept 1: Definisi -->
+        <div id="concept-c1" class="concept-content block space-y-4">
+          <div class="bg-gradient-to-r from-blue-50 to-blue-100/50 p-5 rounded-2xl border-l-4 border-blue-500">
+            <h3 class="font-black text-blue-700 text-lg font-fun">Apa itu Eksponen?</h3>
+            <p class="text-xs md:text-sm text-gray-700 mt-2 leading-relaxed">
+              Eksponen adalah operasi perkalian berulang dari suatu bilangan atau variabel aljabar dengan dirinya sendiri sebanyak pangkat yang ditentukan.
+            </p>
+            
+            <div class="my-4 text-center">
+              <span class="inline-block bg-white text-slate-900 border-2 border-blue-200 rounded-2xl px-8 py-4 shadow-sm">
+                <span class="text-4xl font-fun font-extrabold text-blue-500">$$a^n$$</span> 
+                <span class="text-xs md:text-sm font-semibold block text-gray-500 mt-2">Di mana $a$ dikalikan berulang sebanyak $n$ kali</span>
+              </span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="bg-white p-3 rounded-xl border border-blue-100 text-center">
+                <p class="text-blue-600 font-extrabold text-base md:text-lg">$$a$$</p>
+                <p class="text-xs text-gray-500 font-bold">Basis / Bilangan Pokok</p>
+                <p class="text-xs text-gray-400 mt-1">Angka atau variabel utama yang dikalikan.</p>
+              </div>
+              <div class="bg-white p-3 rounded-xl border border-blue-100 text-center">
+                <p class="text-purple-600 font-extrabold text-base md:text-lg">$$n$$</p>
+                <p class="text-xs text-gray-500 font-bold">Eksponen / Pangkat</p>
+                <p class="text-xs text-gray-400 mt-1">Berapa kali perkalian itu berulang.</p>
+              </div>
+            </div>
+            
+            <p class="text-xs md:text-sm text-gray-600 leading-relaxed mt-2">
+              💡 <strong>Contoh Aljabar:</strong> $x^4 = x \times x \times x \times x$. <br>
+              Ingat! Dalam aljabar, jika tidak tertulis pangkatnya (contoh: $x$), itu berarti pangkatnya adalah $1$ ($x^1$).
+            </p>
+          </div>
+        </div>
+
+        <!-- Concept 2: Sifat Utama -->
+        <div id="concept-c2" class="concept-content hidden space-y-4">
+          <div class="bg-gradient-to-r from-purple-50 to-purple-100/50 p-5 rounded-2xl border-l-4 border-purple-500">
+            <h3 class="font-black text-purple-700 text-lg font-fun">Sifat Operasi Eksponen Utama</h3>
+            <p class="text-xs md:text-sm text-gray-700 mt-2 leading-relaxed">
+              Gunakan aturan cepat ini ketika kamu mengalikan atau membagi eksponen dengan <strong>basis yang sama</strong>:
+            </p>
+
+            <div class="space-y-3">
+              <!-- Sifat 1 -->
+              <div class="bg-white p-3 rounded-xl border border-purple-100">
+                <span class="bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1 rounded-full font-fun">1. Perkalian (Pangkat Ditambah) ➕</span>
+                <p class="text-xs md:text-sm font-bold text-slate-950 mt-1">$$a^m \times a^n = a^{m+n}$$</p>
+                <p class="text-xs text-gray-600">Contoh: $x^3 \times x^5 = x^{3+5} = x^8$.</p>
+              </div>
+
+              <!-- Sifat 2 -->
+              <div class="bg-white p-3 rounded-xl border border-purple-100">
+                <span class="bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1 rounded-full font-fun">2. Pembagian (Pangkat Dikurang) ➖</span>
+                <p class="text-xs md:text-sm font-bold text-slate-950 mt-1">$$\frac{a^m}{a^n} = a^{m-n}$$</p>
+                <p class="text-xs text-gray-600">Contoh: $\frac{y^7}{y^3} = y^{7-3} = y^4$.</p>
+              </div>
+
+              <!-- Sifat 3 -->
+              <div class="bg-white p-3 rounded-xl border border-purple-100">
+                <span class="bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1 rounded-full font-fun">3. Pangkat Dipangkatkan (Pangkat Dikali) ✖️</span>
+                <p class="text-xs md:text-sm font-bold text-slate-950 mt-1">$$(a^m)^n = a^{m \times n}$$</p>
+                <p class="text-xs text-gray-600">Contoh: $(p^2)^4 = p^{2 \times 4} = p^8$.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Concept 3: Pangkat Nol & Negatif -->
+        <div id="concept-c3" class="concept-content hidden space-y-4">
+          <div class="bg-gradient-to-r from-teal-50 to-teal-100/50 p-5 rounded-2xl border-l-4 border-teal-500">
+            <h3 class="font-black text-teal-700 text-lg font-fun">Pangkat Nol & Negatif</h3>
+            <p class="text-xs md:text-sm text-gray-700 mt-2 leading-relaxed">
+              Dua sifat sakti eksponen kelas 9-10 yang wajib dipahami dengan baik:
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-4">
+              <div class="bg-white p-4 rounded-xl border border-teal-100">
+                <span class="bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1 rounded-full font-fun">PANGKAT NOL ⭐</span>
+                <p class="text-xs md:text-sm font-bold text-slate-950 mt-2">Semua bernilai 1</p>
+                <p class="text-xs text-gray-600 mt-1">
+                  Angka atau variabel berapapun (kecuali nol) jika dipangkatkan $0$ hasilnya adalah <strong class="text-teal-600">1</strong>.
+                </p>
+                <p class="text-xs font-bold text-[#2D1B69] mt-2">$$a^0 = 1$$</p>
+                <p class="text-[11px] text-gray-400">Contoh: $5^0 = 1$, $(2xy^2)^0 = 1$.</p>
+              </div>
+
+              <div class="bg-white p-4 rounded-xl border border-rose-100">
+                <span class="bg-rose-100 text-rose-700 text-xs font-bold px-3 py-1 rounded-full font-fun">PANGKAT NEGATIF 🔄</span>
+                <p class="text-xs md:text-sm font-bold text-slate-950 mt-2">Trik Pecahan Balik</p>
+                <p class="text-xs text-gray-600 mt-1">
+                  Pangkat negatif bisa diubah menjadi positif dengan cara dipindahkan menjadi penyebut pecahan per-satu.
+                </p>
+                <p class="text-xs font-bold text-[#2D1B69] mt-2">$$a^{-n} = \frac{1}{a^n}$$</p>
+                <p class="text-[11px] text-gray-400">Contoh: $3^{-2} = \frac{1}{3^2} = \frac{1}{9}$.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Concept 4: Pangkat Pecahan -->
+        <div id="concept-c4" class="concept-content hidden space-y-4">
+          <div class="bg-gradient-to-r from-amber-50 to-amber-100/50 p-5 rounded-2xl border-l-4 border-amber-500">
+            <h3 class="font-black text-amber-700 text-lg font-fun">Pangkat Pecahan (Bentuk Akar)</h3>
+            <p class="text-xs md:text-sm text-gray-700 mt-2 leading-relaxed">
+              Pangkat pecahan pada dasarnya dapat dituliskan sebagai operasi <strong>akar</strong>:
+            </p>
+
+            <div class="bg-white p-5 rounded-2xl border border-amber-100 text-center">
+              <p class="text-2xl font-black text-amber-600">$$a^{\frac{m}{n}} = \sqrt[n]{a^m}$$</p>
+              <p class="text-xs text-gray-500 mt-2 leading-relaxed">
+                Pembilang ($m$) adalah pangkat di dalam akar, penyebut ($n$) adalah kekuatan akar di luar.
+              </p>
+            </div>
+
+            <div class="bg-white p-4 rounded-xl border border-amber-100">
+              <p class="text-xs md:text-sm font-bold text-slate-950">💡 Contoh Penting:</p>
+              <p class="text-xs text-gray-600 mt-1">
+                Pangkat setengah ($\frac{1}{2}$) adalah akar kuadrat biasa: <br>
+                <span class="font-bold text-purple-950">$9^{\frac{1}{2}} = \sqrt[2]{9^1} = \sqrt{9} = 3$</span>.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-6 pt-4 border-t border-gray-100 text-center">
+          <button onclick="jumpToTab('latihan')" class="bg-gradient-to-r from-teal-500 to-purple-600 text-white font-bold px-6 py-2.5 rounded-full font-fun text-sm shadow hover:scale-105 transition">
+            Lanjut ke Latihan Terbimbing! ⚔️
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SECTION 5: LATIHAN TERBIMBING ================= -->
+    <section id="sec-latihan" class="page-node hidden animate-fadeIn">
+      <div class="bg-white rounded-3xl p-6 shadow-md border-2 border-teal-200">
+        <div class="flex items-center gap-3 mb-2">
+          <div class="text-4xl">⚔️</div>
+          <div>
+            <h2 class="text-xl md:text-2xl font-black text-teal-600 font-fun">Latihan Terbimbing Eksponen</h2>
+            <p class="text-xs text-gray-500">Misi terstruktur khusus penyesuaian materi persiapan masuk SMA.</p>
+          </div>
+        </div>
+
+        <!-- Guided Exercise Mini Nav -->
+        <div class="w-full bg-gray-100 rounded-full h-2 mb-6 mt-4">
+          <div id="lat-progress" class="bg-teal-500 h-2 rounded-full transition-all" style="width: 20%"></div>
+        </div>
+
+        <!-- EXERCISE CONTAINER -->
+        <div id="exercise-container" class="space-y-6">
+          
+          <!-- Exercise 1: Sifat Perkalian Aljabar -->
+          <div id="lat-card-1" class="lat-subcard block">
+            <span class="bg-blue-100 text-blue-800 text-xs font-bold px-3 py-1 rounded-full font-fun">MISI 1 DARI 5: PERKALIAN ALJABAR</span>
+            <p class="font-extrabold text-base md:text-lg text-slate-900 mt-3 leading-relaxed">
+              Sederhanakan bentuk perkalian variabel aljabar berikut: <br>
+              <strong class="text-blue-600 text-xl font-fun">$$x^3 \cdot x^5 = x^p$$</strong>
+              Berapakah nilai <strong class="text-teal-600">p</strong> yang tepat?
+            </p>
+
+            <div class="mt-4 space-y-2">
+              <button onclick="checkMisi1('A', this)" class="lat1-btn w-full text-left bg-white hover:bg-teal-50 p-3 rounded-xl border-2 border-teal-100 transition-all flex items-center gap-3 text-sm md:text-base">
+                <span class="bg-teal-100 text-teal-800 w-8 h-8 rounded-lg flex items-center justify-center font-black">A</span>
+                <span>$p = 15$</span>
+              </button>
+              <button onclick="checkMisi1('B', this)" class="lat1-btn w-full text-left bg-white hover:bg-teal-50 p-3 rounded-xl border-2 border-teal-100 transition-all flex items-center gap-3 text-sm md:text-base">
+                <span class="bg-teal-100 text-teal-800 w-8 h-8 rounded-lg flex items-center justify-center font-black">B</span>
+                <span>$p = 8$</span>
+              </button>
+              <button onclick="checkMisi1('C', this)" class="lat1-btn w-full text-left bg-white hover:bg-teal-50 p-3 rounded-xl border-2 border-teal-100 transition-all flex items-center gap-3 text-sm md:text-base">
+                <span class="bg-teal-100 text-teal-800 w-8 h-8 rounded-lg flex items-center justify-center font-black">C</span>
+                <span>$p = 2$</span>
+              </button>
+            </div>
+
+            <div class="mt-4 bg-teal-50 p-3.5 rounded-xl border border-teal-100">
+              <p class="text-xs text-teal-900 leading-relaxed">💡 <strong>Langkah Terbimbing:</strong> Sesuai sifat perkalian eksponen, jika basisnya sama ($x$), jumlahkan pangkatnya: $3 + 5$.</p>
+            </div>
+            <div id="lat-fb-1" class="mt-4 p-3 rounded-xl text-xs md:text-sm font-semibold hidden"></div>
+          </div>
+
+          <!-- Exercise 2: Sifat Perkalian Pangkat Negatif -->
+          <div id="lat-card-2" class="lat-subcard hidden">
+            <span class="bg-teal-100 text-teal-800 text-xs font-bold px-3 py-1 rounded-full font-fun">MISI 2 DARI 5: PERKALIAN PANGKAT NEGATIF</span>
+            <p class="font-extrabold text-base md:text-lg text-slate-900 mt-3 leading-relaxed">
+              Sederhanakan bentuk perkalian berikut: <br>
+              <strong class="text-purple-600 text-xl font-fun">$$a^{-3} \cdot a^5 = a^q$$</strong>
+              Berapakah nilai <strong class="text-teal-600">q</strong>?
+            </p>
+
+            <div class="mt-4 flex flex-col md:flex-row gap-3 items-center">
+              <input type="number" id="lat-ans-2" placeholder="Jawabanmu..." class="w-full md:w-48 px-4 py-2.5 rounded-xl border-2 border-teal-200 focus:border-teal-500 outline-none text-center font-bold font-fun">
+              <button onclick="checkMisi2()" class="w-full md:w-auto bg-[#00C9A7] hover:bg-teal-700 text-white font-extrabold px-6 py-2.5 rounded-xl font-fun shadow-sm transition-all text-sm">Cek Jawaban ✓</button>
+            </div>
+
+            <div class="mt-4 bg-teal-50 p-3.5 rounded-xl border border-teal-100 space-y-1 text-xs text-teal-900">
+              <p class="font-bold">💡 Langkah Terbimbing:</p>
+              <p>Jumlahkan angka pangkatnya dengan memperhatikan tanda negatifnya: $(-3) + 5 = \dots?$</p>
+            </div>
+            <div id="lat-fb-2" class="mt-4 p-3 rounded-xl text-xs md:text-sm font-semibold hidden"></div>
+          </div>
+
+          <!-- Exercise 3: Pembagian Berpangkat Negatif -->
+          <div id="lat-card-3" class="lat-subcard hidden">
+            <span class="bg-teal-100 text-teal-800 text-xs font-bold px-3 py-1 rounded-full font-fun">MISI 3 DARI 5: PEMBAGIAN NEGATIF</span>
+            <p class="font-extrabold text-base md:text-lg text-slate-900 mt-3 leading-relaxed">
+              Sederhanakan pembagian eksponen berikut: <br>
+              <strong class="text-purple-600 text-xl font-fun">$$\frac{x^2}{x^{-4}} = x^r$$</strong>
+              Tentukan nilai <strong class="text-teal-600">r</strong>!
+            </p>
+
+            <div class="mt-4 flex flex-col md:flex-row gap-3 items-center">
+              <input type="number" id="lat-ans-3" placeholder="Jawabanmu..." class="w-full md:w-48 px-4 py-2.5 rounded-xl border-2 border-teal-200 focus:border-teal-500 outline-none text-center font-bold font-fun">
+              <button onclick="checkMisi3()" class="w-full md:w-auto bg-[#00C9A7] hover:bg-teal-700 text-white font-extrabold px-6 py-2.5 rounded-xl font-fun shadow-sm transition-all text-sm">Cek Jawaban ✓</button>
+            </div>
+
+            <div class="mt-4 bg-teal-50 p-3.5 rounded-xl border border-teal-100 space-y-1 text-xs text-teal-900">
+              <p class="font-bold">💡 Langkah Terbimbing:</p>
+              <p>Pada pembagian, pangkat atas dikurangi pangkat bawah: $2 - (-4)$. <br>Ingat bahwa minus bertemu minus berubah menjadi operasi tambah!</p>
+            </div>
+            <div id="lat-fb-3" class="mt-4 p-3 rounded-xl text-xs md:text-sm font-semibold hidden"></div>
+          </div>
+
+          <!-- Exercise 4: Eksponen Pecahan dan Akar -->
+          <div id="lat-card-4" class="lat-subcard hidden">
+            <span class="bg-teal-100 text-teal-800 text-xs font-bold px-3 py-1 rounded-full font-fun">MISI 4 DARI 5: PANGKAT PECAHAN</span>
+            <p class="font-extrabold text-base md:text-lg text-slate-900 mt-3 leading-relaxed">
+              Hitunglah nilai akhir dari perpangkatan pecahan berikut: <br>
+              <strong class="text-purple-600 text-xl font-fun">$$8^{\frac{2}{3}} = \dots$$</strong>
+            </p>
+
+            <div class="mt-4 flex flex-col md:flex-row gap-3 items-center">
+              <input type="number" id="lat-ans-4" placeholder="Jawabanmu..." class="w-full md:w-48 px-4 py-2.5 rounded-xl border-2 border-teal-200 focus:border-teal-500 outline-none text-center font-bold font-fun">
+              <button onclick="checkMisi4()" class="w-full md:w-auto bg-[#00C9A7] hover:bg-teal-700 text-white font-extrabold px-6 py-2.5 rounded-xl font-fun shadow-sm transition-all text-sm">Cek Jawaban ✓</button>
+            </div>
+
+            <div class="mt-4 bg-teal-50 p-3.5 rounded-xl border border-teal-100 space-y-1 text-xs text-teal-900">
+              <p class="font-bold">💡 Langkah Terbimbing:</p>
+              <p>1. Ubah angka $8$ menjadi bentuk pangkat paling sederhana: $8 = 2^3$.</p>
+              <p>2. Kalikan pangkatnya: $(2^3)^{\frac{2}{3}} = 2^{3 \times \frac{2}{3}} = 2^2$. Berapakah nilai dari $2^2$?</p>
+            </div>
+            <div id="lat-fb-4" class="mt-4 p-3 rounded-xl text-xs md:text-sm font-semibold hidden"></div>
+          </div>
+
+          <!-- Exercise 5: Persamaan Eksponen Sederhana -->
+          <div id="lat-card-5" class="lat-subcard hidden">
+            <span class="bg-teal-100 text-teal-800 text-xs font-bold px-3 py-1 rounded-full font-fun">MISI 5 DARI 5: PERSAMAAN EKSPONEN</span>
+            <p class="font-extrabold text-base md:text-lg text-slate-900 mt-3 leading-relaxed">
+              Tentukan nilai variabel <strong class="text-blue-600">x</strong> dari persamaan eksponen berikut: <br>
+              <strong class="text-purple-600 text-xl font-fun">$$3^{2x-1} = 27$$</strong>
+            </p>
+
+            <div class="mt-4 flex flex-col md:flex-row gap-3 items-center">
+              <input type="number" id="lat-ans-5" placeholder="Jawabanmu..." class="w-full md:w-48 px-4 py-2.5 rounded-xl border-2 border-teal-200 focus:border-teal-500 outline-none text-center font-bold font-fun">
+              <button onclick="checkMisi5()" class="w-full md:w-auto bg-[#00C9A7] hover:bg-teal-700 text-white font-extrabold px-6 py-2.5 rounded-xl font-fun shadow-sm transition-all text-sm">Cek Jawaban ✓</button>
+            </div>
+
+            <div class="mt-4 bg-teal-50 p-3.5 rounded-xl border border-teal-100 space-y-1 text-xs text-teal-900">
+              <p class="font-bold">💡 Langkah Terbimbing:</p>
+              <p>1. Samakan basis kiri dan kanan terlebih dahulu: $3^{2x-1} = 3^3$.</p>
+              <p>2. Karena basis sudah sama, selesaikan pangkatnya: $2x - 1 = 3 \implies 2x = 4 \implies x = \dots?$</p>
+            </div>
+            <div id="lat-fb-5" class="mt-4 p-3 rounded-xl text-xs md:text-sm font-semibold hidden"></div>
+          </div>
+
+        </div>
+
+        <!-- Next / Prev Sub-Navigation for Guided Exercises -->
+        <div class="flex justify-between items-center mt-6 pt-4 border-t border-gray-100">
+          <button id="btn-lat-prev" onclick="navLatihan(-1)" class="text-xs md:text-sm font-bold text-gray-400 font-fun cursor-not-allowed" disabled>← Sebelumnya</button>
+          <button id="btn-lat-next" onclick="navLatihan(1)" class="text-xs md:text-sm font-bold text-[#00C9A7] hover:underline font-fun hidden">Misi Berikutnya →</button>
+          <button id="btn-lat-finish" onclick="jumpToTab('mandiri')" class="bg-gradient-to-r from-teal-500 to-purple-600 text-white font-bold px-4 py-2 rounded-full font-fun text-xs md:text-sm shadow hidden">Ke Latihan Mandiri! ✏️</button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= SECTION 6: LATIHAN MANDIRI (15 SOAL) ================= -->
+    <section id="sec-mandiri" class="page-node hidden animate-fadeIn">
+      <div class="bg-white rounded-3xl p-6 shadow-md border-2 border-blue-300">
+        <div class="flex items-center gap-3 mb-2">
+          <div class="text-4xl">✏️</div>
+          <div>
+            <h2 class="text-xl md:text-2xl font-black text-blue-600 font-fun">Latihan Mandiri (15 Soal)</h2>
+            <p class="text-xs text-gray-500">Ayo uji kemampuanmu secara mandiri! Kumpulkan koin emas dan bintang prestasi menuju SMA.</p>
+          </div>
+        </div>
+
+        <!-- Progress bar for Mandiri -->
+        <div class="w-full bg-gray-100 rounded-full h-2 mb-6 mt-4">
+          <div id="mandiri-progress" class="bg-blue-500 h-2 rounded-full transition-all" style="width: 6.6%"></div>
+        </div>
+
+        <!-- Card container for Mandiri dynamic question loading -->
+        <div class="bg-[#EFF6FF] p-6 rounded-2xl border-2 border-blue-100 min-h-[220px] flex flex-col justify-between">
+          <div>
+            <span id="mandiri-q-num-badge" class="bg-blue-200 text-blue-800 text-xs font-bold px-3 py-1 rounded-full font-fun">SOAL 1 DARI 15</span>
+            <div id="mandiri-q-text" class="font-extrabold text-base md:text-lg text-slate-900 mt-4 leading-relaxed">
+              Loading Soal...
+            </div>
+            
+            <!-- Dynamic Answer Area -->
+            <div id="mandiri-answer-area" class="mt-6 flex flex-col gap-2">
+              <!-- Choices / Text Inputs loaded dynamically here -->
+            </div>
+          </div>
+
+          <div id="mandiri-feedback" class="mt-4 p-3 rounded-xl text-xs md:text-sm font-semibold hidden"></div>
+        </div>
+
+        <!-- Next / Prev subnav for Mandiri -->
+        <div class="flex justify-between items-center mt-6 pt-4 border-t border-gray-100">
+          <button id="btn-man-prev" onclick="navMandiri(-1)" class="text-xs md:text-sm font-bold text-gray-400 font-fun cursor-not-allowed" disabled>← Sebelumnya</button>
+          <button id="btn-man-next" onclick="navMandiri(1)" class="text-xs md:text-sm font-bold text-blue-500 hover:underline font-fun hidden">Soal Berikutnya →</button>
+          <button id="btn-man-finish" onclick="jumpToTab('refleksi')" class="bg-gradient-to-r from-purple-500 to-blue-600 text-white font-bold px-5 py-2.5 rounded-full font-fun text-xs md:text-sm shadow hidden">Selesai & Lanjut ke Refleksi! 💭</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SECTION 7: REFLEKSI ================= -->
+    <section id="sec-refleksi" class="page-node hidden animate-fadeIn">
+      <div class="bg-white rounded-3xl p-6 shadow-md border-2 border-purple-200">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="text-4xl">💭</div>
+          <div>
+            <h2 class="text-xl md:text-2xl font-black text-purple-600 font-fun">Yuk Refleksi Diri!</h2>
+            <p class="text-xs text-gray-500">Seberapa paham dan seru petualangan eksponenmu hari ini?</p>
+          </div>
+        </div>
+
+        <div class="space-y-6">
+          <div class="bg-purple-50 p-5 rounded-2xl border border-purple-100 text-center">
+            <h3 class="font-bold text-sm md:text-base text-purple-950 mb-3 font-fun">Bagaimana perasaanmu belajar eksponen hari ini?</h3>
+            
+            <div class="flex justify-center gap-2 md:gap-4 flex-wrap">
+              <button onclick="selectEmoji(this, '😟')" class="emoji-btn bg-white hover:scale-110 transition border-2 border-purple-100 w-12 h-12 rounded-xl text-2xl flex items-center justify-center">😟</button>
+              <button onclick="selectEmoji(this, '😐')" class="emoji-btn bg-white hover:scale-110 transition border-2 border-purple-100 w-12 h-12 rounded-xl text-2xl flex items-center justify-center">😐</button>
+              <button onclick="selectEmoji(this, '😊')" class="emoji-btn bg-white hover:scale-110 transition border-2 border-purple-100 w-12 h-12 rounded-xl text-2xl flex items-center justify-center">😊</button>
+              <button onclick="selectEmoji(this, '😄')" class="emoji-btn bg-white hover:scale-110 transition border-2 border-purple-100 w-12 h-12 rounded-xl text-2xl flex items-center justify-center">😄</button>
+              <button onclick="selectEmoji(this, '🤩')" class="emoji-btn bg-white hover:scale-110 transition border-2 border-purple-100 w-12 h-12 rounded-xl text-2xl flex items-center justify-center">🤩</button>
+            </div>
+            
+            <div id="emoji-comment" class="mt-4 font-bold text-xs md:text-sm text-purple-700 min-h-[20px]"></div>
+          </div>
+
+          <div class="bg-blue-50 p-5 rounded-2xl border border-blue-100">
+            <h3 class="font-bold text-sm md:text-base text-slate-900 mb-2 font-fun">Bagian mana yang paling kamu sukai?</h3>
+            <div class="grid grid-cols-1 gap-2 text-xs md:text-sm font-semibold">
+              <label class="bg-white p-3 rounded-xl border border-blue-100 flex items-center gap-3 cursor-pointer">
+                <input type="radio" name="favorite" class="accent-blue-500"> Belajar pemangkatan aljabar & bentuk akar
+              </label>
+              <label class="bg-white p-3 rounded-xl border border-blue-100 flex items-center gap-3 cursor-pointer">
+                <input type="radio" name="favorite" class="accent-blue-500"> Tantangan Warm-Up logika perkalian berulang
+              </label>
+              <label class="bg-white p-3 rounded-xl border border-blue-100 flex items-center gap-3 cursor-pointer">
+                <input type="radio" name="favorite" class="accent-blue-500"> Tantangan Mandiri 15 soal tingkat tinggi
+              </label>
+            </div>
+          </div>
+
+          <div class="bg-teal-50 p-5 rounded-2xl border border-teal-100">
+            <h3 class="font-bold text-sm md:text-base text-teal-950 mb-2 font-fun">Ada materi yang masih membuatmu bingung?</h3>
+            <textarea id="confusion-text" placeholder="Tulis di sini... (Contoh: perpangkatan pecahan, negatif, atau pembagian ganda). Tidak apa-apa jika masih bingung, proses belajar butuh waktu!" class="w-full p-3 rounded-xl border border-teal-200 focus:outline-none focus:border-teal-500 text-xs md:text-sm shadow-inner" rows="3"></textarea>
+          </div>
+        </div>
+
+        <div class="mt-6 pt-4 border-t border-gray-100 text-center">
+          <button onclick="jumpToTab('kesimpulan')" class="bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-bold px-8 py-3 rounded-full font-fun text-sm shadow hover:scale-105 transition">
+            Lihat Kesimpulan & Sertifikat! 🏆
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SECTION 8: KESIMPULAN ================= -->
+    <section id="sec-kesimpulan" class="page-node hidden animate-fadeIn">
+      <div class="bg-white rounded-3xl p-6 shadow-md border-2 border-emerald-200">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="text-4xl">🏆</div>
+          <div>
+            <h2 class="text-xl md:text-2xl font-black text-emerald-600 font-fun">Hebat! Kamu Menyelesaikan Misi!</h2>
+            <p class="text-xs text-gray-500">Semua materi eksponen transisi penting berhasil dikunci di dalam memori jangka panjangmu.</p>
+          </div>
+        </div>
+
+        <!-- Summary Mind Map Visual -->
+        <div class="bg-gradient-to-br from-emerald-50 to-teal-100/40 p-5 rounded-2xl border border-emerald-100 text-center">
+          <h3 class="font-bold font-fun text-teal-950 text-sm md:text-base mb-4">Ringkasan Kilat Eksponen:</h3>
+          
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-3 text-xs">
+            <div class="bg-white p-3 rounded-xl border border-emerald-200 shadow-sm flex flex-col items-center">
+              <span class="text-xl mb-1">📐</span>
+              <strong class="text-teal-900">Definisi</strong>
+              <span class="text-gray-500 mt-1">Perkalian berulang ($a^n$)</span>
+            </div>
+            <div class="bg-white p-3 rounded-xl border border-emerald-200 shadow-sm flex flex-col items-center">
+              <span class="text-xl mb-1">➕</span>
+              <strong class="text-teal-900">Perkalian</strong>
+              <span class="text-gray-500 mt-1">Pangkat dijumlah ($a^{m+n}$)</span>
+            </div>
+            <div class="bg-white p-3 rounded-xl border border-emerald-200 shadow-sm flex flex-col items-center">
+              <span class="text-xl mb-1">➖</span>
+              <strong class="text-teal-900">Pembagian</strong>
+              <span class="text-gray-500 mt-1">Pangkat dikurang ($a^{m-n}$)</span>
+            </div>
+            <div class="bg-white p-3 rounded-xl border border-emerald-200 shadow-sm flex flex-col items-center">
+              <span class="text-xl mb-1">🔮</span>
+              <strong class="text-teal-900">Sakti</strong>
+              <span class="text-gray-500 mt-1">$a^0 = 1$ &nbsp;&nbsp; $a^{-n} = \frac{1}{a^n}$</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Certificate Form -->
+        <div class="mt-6 p-6 border-4 border-yellow-400 bg-amber-50/50 rounded-2xl relative overflow-hidden text-center max-w-lg mx-auto shadow-md">
+          <div class="absolute top-2 left-2 text-xl opacity-20">⭐</div>
+          <div class="absolute top-2 right-2 text-xl opacity-20">⭐</div>
+          <div class="absolute bottom-2 left-2 text-xl opacity-20">✨</div>
+          <div class="absolute bottom-2 right-2 text-xl opacity-20">✨</div>
+
+          <p class="font-fun font-bold uppercase tracking-widest text-amber-800 text-xs">Sertifikat Kelulusan</p>
+          <div class="text-4xl my-2">🎖️</div>
+          <p class="text-xs text-gray-500">Diberikan Kepada:</p>
+          
+          <h3 id="cert-name" class="font-fun font-extrabold text-xl md:text-2xl text-purple-900 my-2">Pelajar Hebat Eksponen</h3>
+          
+          <p class="text-xs text-gray-600 leading-relaxed px-4">
+            Telah menyelesaikan seluruh rangkaian <strong class="text-amber-800">Review & Penguatan Eksponen Terperinci (Persiapan Kelas 10)</strong> dengan tekun, gembira, dan berhak dinobatkan sebagai:
+          </p>
+          <p class="font-fun font-black text-blue-600 text-sm md:text-base mt-2">🌟 Master Eksponen Anti-Pelupa! 🌟</p>
+          
+          <div class="mt-4 flex justify-center gap-1 text-yellow-500 text-lg">⭐⭐⭐⭐⭐</div>
+          <p id="cert-date" class="text-[10px] text-gray-400 mt-2"></p>
+        </div>
+
+        <div class="mt-6 flex flex-col sm:flex-row gap-2 justify-center max-w-sm mx-auto">
+          <input type="text" id="student-name-input" placeholder="Tulis namamu di sini..." class="px-4 py-2 border-2 border-emerald-200 rounded-full focus:outline-none focus:border-emerald-500 text-sm font-semibold font-fun text-center">
+          <button onclick="generateCertificate()" class="bg-gradient-to-r from-amber-500 to-yellow-500 text-white font-bold px-6 py-2 rounded-full font-fun text-sm shadow hover:scale-105 transition">Buat Sertifikat! ✨</button>
+        </div>
+
+        <div class="mt-8 pt-6 border-t border-gray-100 text-center">
+          <button onclick="restartBooster()" class="bg-blue-100 text-blue-700 hover:bg-blue-200 font-bold px-5 py-2 rounded-full font-fun text-xs md:text-sm transition">
+            🔄 Ulangi Petualangan
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="text-center text-xs text-slate-500 mt-12 font-medium max-w-4xl mx-auto w-full px-4 flex flex-col md:flex-row justify-between items-center gap-2 border-t border-blue-100 pt-4">
+    <p>Dibuat khusus untuk penguatan materi Bilangan Berpangkat (Eksponen).</p>
+    <p>Eksponen Memory Booster © 2026 ⚡</p>
+  </footer>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    // Global App States
+    let score = 0;
+    let currentWarmupPage = 1;
+    let totalWarmupPages = 4;
+    
+    let currentLatihanPage = 1;
+    let totalLatihanPages = 5;
+
+    let currentMandiriPage = 1;
+    let totalMandiriPages = 15;
+
+    // Correct Answers Tracker for scoring once
+    const answeredTracker = {
+      wu1: false, wu2: false, wu3: false, wu4: false,
+      lat1: false, lat2: false, lat3: false, lat4: false, lat5: false
+    };
+
+    // Tracker for independent practice questions
+    const mandiriAnsweredTracker = Array(15).fill(false);
+
+    // Mandiri Questions Database (15 varied questions matching Class 9->10 transition)
+    // Avoid raw standard single \times string inside JS to prevent compiler tab escape bug
+    const mandiriQuestions = [
+      {
+        id: 1,
+        type: 'mc',
+        text: 'Berapakah nilai akhir dari perpangkatan negatif berikut: $2^{-3}$?',
+        options: { A: '$8$', B: '$\\frac{1}{8}$', C: '$-\\frac{1}{8}$' },
+        correct: 'B'
+      },
+      {
+        id: 2,
+        type: 'mc',
+        text: 'Sederhanakan bentuk perkalian aljabar berikut: $x^4 \\cdot x^2 \\cdot x^{-1}$. Hasilnya adalah...',
+        options: { A: '$x^5$', B: '$x^6$', C: '$x^7$' },
+        correct: 'A'
+      },
+      {
+        id: 3,
+        type: 'mc',
+        text: 'Tentukan nilai eksponensial pecahan berikut: $27^{\\frac{1}{3}}$?',
+        options: { A: '$3$', B: '$9$', C: '$27$' },
+        correct: 'A'
+      },
+      {
+        id: 4,
+        type: 'text',
+        text: 'Sederhanakan bentuk pecahan aljabar berikut: $\\frac{a^5}{a^{-2}} = a^n$. Berapakah angka nilai $n$?',
+        correct: ['7']
+      },
+      {
+        id: 5,
+        type: 'text',
+        text: 'Sederhanakan bentuk pangkat berpangkat berikut: $(x^2)^4 = x^p$. Berapakah angka nilai $p$?',
+        correct: ['8']
+      },
+      {
+        id: 6,
+        type: 'text',
+        text: 'Tentukan hasil akhir berupa angka bulat dari eksponen pecahan: $4^{\\frac{3}{2}}$',
+        correct: ['8']
+      },
+      {
+        id: 7,
+        type: 'mc',
+        text: 'Sederhanakan bentuk aljabar berkurung berikut: $(2x^3)^2$',
+        options: { A: '$2x^6$', B: '$4x^5$', C: '$4x^6$' },
+        correct: 'C'
+      },
+      {
+        id: 8,
+        type: 'text',
+        text: 'Nilai variabel $x$ yang tepat untuk memenuhi persamaan eksponen dasar $2^x = 32$ adalah...',
+        correct: ['5']
+      },
+      {
+        id: 9,
+        type: 'mc',
+        text: 'Ubah bentuk pangkat pecahan $y^{\\frac{3}{4}}$ menjadi bentuk akar yang benar:',
+        options: { A: '$\\sqrt[4]{y^3}$', B: '$\\sqrt[3]{y^4}$', C: '$\\sqrt{y^{12}}$' },
+        correct: 'A'
+      },
+      {
+        id: 10,
+        type: 'text',
+        text: 'Tentukan hasil akhir angka bulat dari operasi berikut: $10^0 + 2^3$',
+        correct: ['9']
+      },
+      {
+        id: 11,
+        type: 'mc',
+        text: 'Sederhanakan perpangkatan negatif berikut: $\\left(\\frac{a^2}{b^3}\\right)^{-1}$',
+        options: { A: '$\\frac{b^3}{a^2}$', B: '$\\frac{a^2}{b^3}$', C: '$a^2 b^3$' },
+        correct: 'A'
+      },
+      {
+        id: 12,
+        type: 'text',
+        text: 'Selesaikan nilai $x$ dari persamaan eksponen berikut: $5^{x+1} = 125$',
+        correct: ['2']
+      },
+      {
+        id: 13,
+        type: 'mc',
+        text: 'Sederhanakan bentuk perkalian gabungan aljabar berikut: $(p^2 q^3) \\cdot (p^3 q^{-1})$',
+        options: { A: '$p^5 q^2$', B: '$p^6 q^3$', C: '$p^5 q^4$' },
+        correct: 'A'
+      },
+      {
+        id: 14,
+        type: 'text',
+        text: 'Tentukan pangkat akhir $n$ dari hasil operasi eksponen berikut: $(2^2)^3 \\div 2^4 = 2^n$',
+        correct: ['2']
+      },
+      {
+        id: 15,
+        type: 'text',
+        text: 'Selesaikan nilai variabel $y$ dari persamaan eksponensial sederhana: $3^{y-3} = 1$',
+        correct: ['3']
+      }
+    ];
+
+    // Tab Navigation Logic
+    function jumpToTab(tabName) {
+      // Hide all main section containers
+      const sections = ['tujuan', 'warmup', 'nyata', 'konsep', 'latihan', 'mandiri', 'refleksi', 'kesimpulan'];
+      sections.forEach(sec => {
+        document.getElementById('sec-' + sec).classList.add('hidden');
+        document.getElementById('sec-' + sec).classList.remove('block');
+        
+        // Update nav-tab buttons visual
+        const btn = document.getElementById('tab-' + sec);
+        if (btn) {
+          btn.className = "tab-btn px-4 py-2 rounded-full whitespace-nowrap bg-white text-blue-800 hover:bg-blue-100 transition";
+        }
+      });
+
+      // Show target section container
+      const activeSec = document.getElementById('sec-' + tabName);
+      if (activeSec) {
+        activeSec.classList.remove('hidden');
+        activeSec.classList.add('block');
+      }
+
+      // Highlighting active button
+      const activeBtn = document.getElementById('tab-' + tabName);
+      if (activeBtn) {
+        activeBtn.className = "tab-btn px-4 py-2 rounded-full whitespace-nowrap bg-blue-600 text-white shadow-md font-bold font-fun transition";
+      }
+
+      // Special action on landing on certificate page
+      if (tabName === 'kesimpulan') {
+        const d = new Date();
+        document.getElementById('cert-date').innerText = d.toLocaleDateString('id-ID', {day: 'numeric', month: 'long', year: 'numeric'});
+      }
+
+      if (tabName === 'mandiri') {
+        loadMandiriQuestion();
+      }
+      
+      // Auto-scroll to top of viewport
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    }
+
+    // Concept Subtabs switcher
+    function switchConceptTab(tabId) {
+      document.querySelectorAll('.concept-tab-btn').forEach(btn => {
+        btn.className = "concept-tab-btn flex-1 py-2 text-xs font-bold rounded-xl transition text-blue-800 hover:bg-white/50 font-fun";
+      });
+      document.getElementById('ctab-' + tabId).className = "concept-tab-btn flex-1 py-2 text-xs font-bold rounded-xl transition bg-white text-slate-900 font-fun shadow-sm";
+
+      document.querySelectorAll('.concept-content').forEach(content => {
+        content.classList.add('hidden');
+        content.classList.remove('block');
+      });
+      document.getElementById('concept-' + tabId).classList.remove('hidden');
+      document.getElementById('concept-' + tabId).classList.add('block');
+    }
+
+    // Points Adder Function
+    function addPoints(points) {
+      score += points;
+      const scoreText = document.getElementById('current-score');
+      scoreText.innerText = score;
+      
+      // Dynamic animation trigger on score update
+      const chip = document.getElementById('score-chip');
+      chip.classList.add('scale-125');
+      setTimeout(() => chip.classList.remove('scale-125'), 300);
+    }
+
+    // ================= WARMUP SYSTEM LOGIC =================
+    function navWarmup(dir) {
+      let target = currentWarmupPage + dir;
+      if (target >= 1 && target <= totalWarmupPages) {
+        document.getElementById('wu-card-' + currentWarmupPage).classList.add('hidden');
+        document.getElementById('wu-card-' + currentWarmupPage).classList.remove('block');
+        
+        currentWarmupPage = target;
+        
+        document.getElementById('wu-card-' + currentWarmupPage).classList.remove('hidden');
+        document.getElementById('wu-card-' + currentWarmupPage).classList.add('block');
+        
+        // Progress percentage calculation
+        let pct = (currentWarmupPage / totalWarmupPages) * 100;
+        document.getElementById('wu-progress').style.width = pct + '%';
+        
+        // Button updates
+        document.getElementById('btn-wu-prev').disabled = currentWarmupPage === 1;
+        if (currentWarmupPage === 1) {
+          document.getElementById('btn-wu-prev').classList.add('text-gray-400', 'cursor-not-allowed');
+          document.getElementById('btn-wu-prev').classList.remove('text-[#8B5CF6]', 'hover:underline');
+        } else {
+          document.getElementById('btn-wu-prev').classList.remove('text-gray-400', 'cursor-not-allowed');
+          document.getElementById('btn-wu-prev').classList.add('text-[#8B5CF6]', 'hover:underline');
+        }
+
+        // Hide Next button until correct answer is supplied or already answered before
+        if (answeredTracker['wu' + currentWarmupPage]) {
+          toggleWarmupNextButton(true);
+        } else {
+          toggleWarmupNextButton(false);
+        }
+      }
+    }
+
+    function toggleWarmupNextButton(show) {
+      const btnNext = document.getElementById('btn-wu-next');
+      const btnFinish = document.getElementById('btn-wu-finish');
+      
+      if (show) {
+        if (currentWarmupPage === totalWarmupPages) {
+          btnNext.classList.add('hidden');
+          btnFinish.classList.remove('hidden');
+        } else {
+          btnNext.classList.remove('hidden');
+          btnFinish.classList.add('hidden');
+        }
+      } else {
+        btnNext.classList.add('hidden');
+        btnFinish.classList.add('hidden');
+      }
+    }
+
+    function submitWarmup(qNum, correctAns) {
+      const userAns = parseInt(document.getElementById('wu-ans-' + qNum).value);
+      const feedback = document.getElementById('wu-fb-' + qNum);
+      feedback.classList.remove('hidden');
+
+      if (userAns === correctAns) {
+        feedback.className = "mt-4 p-3 rounded-xl text-xs md:text-sm font-semibold bg-[#E0FBF5] text-[#008065] border border-[#7EEBD9]";
+        feedback.innerHTML = `🎉 JAWABAN BENAR! Hebat sekali!`;
+        
+        if (!answeredTracker['wu' + qNum]) {
+          answeredTracker['wu' + qNum] = true;
+          addPoints(10);
+        }
+        
+        toggleWarmupNextButton(true);
+      } else {
+        feedback.className = "mt-4 p-3 rounded-xl text-xs md:text-sm font-semibold bg-[#FFF0F3] text-[#CC0033] border border-[#FFB3D1]";
+        feedback.innerHTML = "🤔 Belum tepat, mari dicoba kembali. Pikirkan perkaliannya secara teliti!";
+        toggleWarmupNextButton(false);
+      }
+    }
+
+    // ================= LATIHAN TERBIMBING LOGIC =================
+    function navLatihan(dir) {
+      let target = currentLatihanPage + dir;
+      if (target >= 1 && target <= totalLatihanPages) {
+        document.getElementById('lat-card-' + currentLatihanPage).classList.add('hidden');
+        document.getElementById('lat-card-' + currentLatihanPage).classList.remove('block');
+        
+        currentLatihanPage = target;
+        
+        document.getElementById('lat-card-' + currentLatihanPage).classList.remove('hidden');
+        document.getElementById('lat-card-' + currentLatihanPage).classList.add('block');
+        
+        // Progress bar percentage
+        let pct = (currentLatihanPage / totalLatihanPages) * 100;
+        document.getElementById('lat-progress').style.width = pct + '%';
+        
+        // Prev button state
+        document.getElementById('btn-lat-prev').disabled = currentLatihanPage === 1;
+        if (currentLatihanPage === 1) {
+          document.getElementById('btn-lat-prev').classList.add('text-gray-400', 'cursor-not-allowed');
+          document.getElementById('btn-lat-prev').classList.remove('text-[#00C9A7]', 'hover:underline');
+        } else {
+          document.getElementById('btn-lat-prev').classList.remove('text-gray-400', 'cursor-not-allowed');
+          document.getElementById('btn-lat-prev').classList.add('text-[#00C9A7]', 'hover:underline');
+        }
+
+        if (answeredTracker['lat' + currentLatihanPage]) {
+          toggleLatihanNextButton(true);
+        } else {
+          toggleLatihanNextButton(false);
+        }
+      }
+    }
+
+    function toggleLatihanNextButton(show) {
+      const btnNext = document.getElementById('btn-lat-next');
+      const btnFinish = document.getElementById('btn-lat-finish');
+      
+      if (show) {
+        if (currentLatihanPage === totalLatihanPages) {
+          btnNext.classList.add('hidden');
+          btnFinish.classList.remove('hidden');
+        } else {
+          btnNext.classList.remove('hidden');
+          btnFinish.classList.add('hidden');
+        }
+      } else {
+        btnNext.classList.add('hidden');
+        btnFinish.classList.add('hidden');
+      }
+    }
+
+    // Misi 1: Perkalian Aljabar (Multiple Choice)
+    function checkMisi1(ans, element) {
+      // Reset button styles
+      document.querySelectorAll('.lat1-btn').forEach(btn => {
+        btn.classList.remove('border-green-500', 'bg-green-50', 'border-red-500', 'bg-red-50');
+      });
+
+      const feedback = document.getElementById('lat-fb-1');
+      feedback.classList.remove('hidden');
+
+      if (ans === 'B') {
+        element.classList.add('border-green-500', 'bg-green-50');
+        feedback.className = "mt-4 p-3 rounded-xl text-xs md:text-sm font-semibold bg-[#E0FBF5] text-[#008065] border border-[#7EEBD9]";
+        feedback.innerHTML = "🎉 JAWABAN BENAR! Hebat sekali!";
+        
+        if (!answeredTracker.lat1) {
+          answeredTracker.lat1 = true;
+          addPoints(15);
+        }
+        toggleLatihanNextButton(true);
+      } else {
+        element.classList.add('border-red-500', 'bg-red-50');
+        feedback.className = "mt-4 p-3 rounded-xl text-xs md:text-sm font-semibold bg-[#FFF0F3] text-[#CC0033] border border-[#FFB3D1]";
+        feedback.innerHTML = "❌ Kurang tepat. Dalam sifat perkalian eksponen, pangkat dijumlahkan: $3 + 5 = 8$.";
+        toggleLatihanNextButton(false);
+      }
+    }
+
+    // Misi 2: Sifat Perkalian Pangkat Negatif (Text Input)
+    function checkMisi2() {
+      const ansInput = document.getElementById('lat-ans-2').value.trim().toLowerCase().replace(/\s/g, '');
+      const feedback = document.getElementById('lat-fb-2');
+      feedback.classList.remove('hidden');
+
+      if (ansInput === '2') {
+        feedback.className = "mt-4 p-3 rounded-xl text-xs md:text-sm font-semibold bg-[#E0FBF5] text-[#008065] border border-[#7EEBD9]";
+        feedback.innerHTML = "🎉 JAWABAN BENAR! Hasilnya adalah $a^2$!";
+        
+        if (!answeredTracker.lat2) {
+          answeredTracker.lat2 = true;
+          addPoints(15);
+        }
+        toggleLatihanNextButton(true);
+      } else {
+        feedback.className = "mt-4 p-3 rounded-xl text-xs md:text-sm font-semibold bg-[#FFF0F3] text-[#CC0033] border border-[#FFB3D1]";
+        feedback.innerHTML = "🤔 Belum tepat. Aturan perkalian tetap dijumlahkan: $(-3) + 5 = 2$. Coba ketik angka 2!";
+        toggleLatihanNextButton(false);
+      }
+    }
+
+    // Misi 3: Pembagian Berpangkat Negatif (Text Input)
+    function checkMisi3() {
+      const ansInput = document.getElementById('lat-ans-3').value.trim().toLowerCase().replace(/\s/g, '');
+      const feedback = document.getElementById('lat-fb-3');
+      feedback.classList.remove('hidden');
+
+      if (ansInput === '6') {
+        feedback.className = "mt-4 p-3 rounded-xl text-xs md:text-sm font-semibold bg-[#E0FBF5] text-[#008065] border border-[#7EEBD9]";
+        feedback.innerHTML = "🎉 JAWABAN BENAR! Hasilnya adalah $x^6$!";
+        
+        if (!answeredTracker.lat3) {
+          answeredTracker.lat3 = true;
+          addPoints(15);
+        }
+        toggleLatihanNextButton(true);
+      } else {
+        feedback.className = "mt-4 p-3 rounded-xl text-xs md:text-sm font-semibold bg-[#FFF0F3] text-[#CC0033] border border-[#FFB3D1]";
+        feedback.innerHTML = "🤔 Belum tepat. Ingat aturan pengurangan pembangkatan: $2 - (-4) = 2 + 4 = 6$. Coba lagi!";
+        toggleLatihanNextButton(false);
+      }
+    }
+
+    // Misi 4: Pangkat Pecahan & Akar (Text Input)
+    function checkMisi4() {
+      const ansInput = document.getElementById('lat-ans-4').value.trim().toLowerCase().replace(/\s/g, '');
+      const feedback = document.getElementById('lat-fb-4');
+      feedback.classList.remove('hidden');
+
+      if (ansInput === '4') {
+        feedback.className = "mt-4 p-3 rounded-xl text-xs md:text-sm font-semibold bg-[#E0FBF5] text-[#008065] border border-[#7EEBD9]";
+        feedback.innerHTML = "🎉 JAWABAN BENAR! Hasil dari $8^{2/3}$ adalah $2^2 = 4$!";
+        
+        if (!answeredTracker.lat4) {
+          answeredTracker.lat4 = true;
+          addPoints(15);
+        }
+        toggleLatihanNextButton(true);
+      } else {
+        feedback.className = "mt-4 p-3 rounded-xl text-xs md:text-sm font-semibold bg-[#FFF0F3] text-[#CC0033] border border-[#FFB3D1]";
+        feedback.innerHTML = "🤔 Belum tepat. Hitung nilai perpangkatan dari $2^2$ di langkah terbimbing.";
+        toggleLatihanNextButton(false);
+      }
+    }
+
+    // Misi 5: Persamaan Eksponen (Text Input)
+    function checkMisi5() {
+      const ansInput = document.getElementById('lat-ans-5').value.trim().toLowerCase().replace(/\s/g, '');
+      const feedback = document.getElementById('lat-fb-5');
+      feedback.classList.remove('hidden');
+
+      if (ansInput === '2') {
+        feedback.className = "mt-4 p-3 rounded-xl text-xs md:text-sm font-semibold bg-[#E0FBF5] text-[#008065] border border-[#7EEBD9]";
+        feedback.innerHTML = "🎉 JAWABAN BENAR! Nilai $x = 2$ terbukti benar!";
+        
+        if (!answeredTracker.lat5) {
+          answeredTracker.lat5 = true;
+          addPoints(15);
+        }
+        toggleLatihanNextButton(true);
+      } else {
+        feedback.className = "mt-4 p-3 rounded-xl text-xs md:text-sm font-semibold bg-[#FFF0F3] text-[#CC0033] border border-[#FFB3D1]";
+        feedback.innerHTML = "🤔 Belum tepat. Selesaikan persamaan linear dari $2x - 1 = 3 \\implies 2x = 4$. Berapakah nilai $x$?";
+        toggleLatihanNextButton(false);
+      }
+    }
+
+    // ================= LATIHAN MANDIRI (15 SOAL) SYSTEM LOGIC =================
+    function loadMandiriQuestion() {
+      const q = mandiriQuestions[currentMandiriPage - 1];
+      
+      // Update header/badge
+      document.getElementById('mandiri-q-num-badge').innerText = `SOAL ${currentMandiriPage} DARI 15`;
+      
+      // Load and render math text
+      const qTextContainer = document.getElementById('mandiri-q-text');
+      qTextContainer.innerHTML = q.text;
+      
+      // Clear dynamic answers
+      const ansArea = document.getElementById('mandiri-answer-area');
+      ansArea.innerHTML = '';
+      
+      // Hide feedback initially
+      const feedback = document.getElementById('mandiri-feedback');
+      feedback.classList.add('hidden');
+
+      // Populate interactive answers based on type
+      if (q.type === 'mc') {
+        // Load multiple choices
+        for (let key in q.options) {
+          const btn = document.createElement('button');
+          btn.className = "mandiri-choice-btn w-full text-left bg-white hover:bg-blue-50 p-3 rounded-xl border-2 border-blue-100 transition-all flex items-center gap-3 text-sm md:text-base font-medium";
+          btn.onclick = function() { checkMandiriMC(key, btn); };
+          btn.innerHTML = `<span class="bg-blue-100 text-blue-800 w-8 h-8 rounded-lg flex items-center justify-center font-black">${key}</span> <span>${q.options[key]}</span>`;
+          ansArea.appendChild(btn);
+        }
+      } else {
+        // Load text input without placeholder prefilled value
+        const inputContainer = document.createElement('div');
+        inputContainer.className = "flex flex-col md:flex-row gap-3 items-center w-full";
+        
+        const inp = document.createElement('input');
+        inp.type = "text";
+        inp.id = "mandiri-text-input";
+        inp.placeholder = "Jawabanmu...";
+        inp.className = "w-full md:w-48 px-4 py-2.5 rounded-xl border-2 border-blue-200 focus:border-blue-500 outline-none text-center font-bold font-fun";
+        
+        const btn = document.createElement('button');
+        btn.className = "w-full md:w-auto bg-[#3B82F6] hover:bg-blue-700 text-white font-extrabold px-6 py-2.5 rounded-xl font-fun shadow-sm transition-all text-sm";
+        btn.innerText = "Cek Jawaban ✓";
+        btn.onclick = function() { checkMandiriText(); };
+        
+        inputContainer.appendChild(inp);
+        inputContainer.appendChild(btn);
+        ansArea.appendChild(inputContainer);
+      }
+
+      // Re-trigger KaTeX rendering on newly loaded question container
+      if (window.renderMathInElement) {
+        window.renderMathInElement(document.getElementById('sec-mandiri'), {
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false}
+          ],
+          throwOnError: false
+        });
+      }
+
+      // Navigation button configurations
+      toggleMandiriNextButton(mandiriAnsweredTracker[currentMandiriPage - 1]);
+    }
+
+    function checkMandiriMC(choice, btnElement) {
+      const q = mandiriQuestions[currentMandiriPage - 1];
+      const feedback = document.getElementById('mandiri-feedback');
+      feedback.classList.remove('hidden');
+
+      // Reset styles
+      document.querySelectorAll('.mandiri-choice-btn').forEach(btn => {
+        btn.classList.remove('border-green-500', 'bg-green-50', 'border-red-500', 'bg-red-50');
+      });
+
+      if (choice === q.correct) {
+        btnElement.classList.add('border-green-500', 'bg-green-50');
+        feedback.className = "mt-4 p-3 rounded-xl text-xs md:text-sm font-semibold bg-[#E0FBF5] text-[#008065] border border-[#7EEBD9]";
+        feedback.innerHTML = "🎉 JAWABAN BENAR! Hebat sekali!";
+        
+        if (!mandiriAnsweredTracker[currentMandiriPage - 1]) {
+          mandiriAnsweredTracker[currentMandiriPage - 1] = true;
+          addPoints(10);
+        }
+        toggleMandiriNextButton(true);
+      } else {
+        btnElement.classList.add('border-red-500', 'bg-red-50');
+        feedback.className = "mt-4 p-3 rounded-xl text-xs md:text-sm font-semibold bg-[#FFF0F3] text-[#CC0033] border border-[#FFB3D1]";
+        feedback.innerHTML = "🤔 Belum tepat, ayo coba cari jawaban yang lainnya!";
+        toggleMandiriNextButton(false);
+      }
+    }
+
+    function checkMandiriText() {
+      const q = mandiriQuestions[currentMandiriPage - 1];
+      const ansInput = document.getElementById('mandiri-text-input').value.trim().toLowerCase().replace(/\s/g, '');
+      const feedback = document.getElementById('mandiri-feedback');
+      feedback.classList.remove('hidden');
+
+      const isCorrect = q.correct.includes(ansInput);
+
+      if (isCorrect) {
+        feedback.className = "mt-4 p-3 rounded-xl text-xs md:text-sm font-semibold bg-[#E0FBF5] text-[#008065] border border-[#7EEBD9]";
+        feedback.innerHTML = "🎉 JAWABAN BENAR! Hebat sekali!";
+        
+        if (!mandiriAnsweredTracker[currentMandiriPage - 1]) {
+          mandiriAnsweredTracker[currentMandiriPage - 1] = true;
+          addPoints(10);
+        }
+        toggleMandiriNextButton(true);
+      } else {
+        feedback.className = "mt-4 p-3 rounded-xl text-xs md:text-sm font-semibold bg-[#FFF0F3] text-[#CC0033] border border-[#FFB3D1]";
+        feedback.innerHTML = "🤔 Belum tepat, periksa kembali hitunganmu dan coba lagi!";
+        toggleMandiriNextButton(false);
+      }
+    }
+
+    function navMandiri(dir) {
+      let target = currentMandiriPage + dir;
+      if (target >= 1 && target <= totalMandiriPages) {
+        currentMandiriPage = target;
+        
+        // Progress bar percentage calculation
+        let pct = (currentMandiriPage / totalMandiriPages) * 100;
+        document.getElementById('mandiri-progress').style.width = pct + '%';
+        
+        // Prev button setting
+        document.getElementById('btn-man-prev').disabled = currentMandiriPage === 1;
+        if (currentMandiriPage === 1) {
+          document.getElementById('btn-man-prev').classList.add('text-gray-400', 'cursor-not-allowed');
+          document.getElementById('btn-man-prev').classList.remove('text-blue-500', 'hover:underline');
+        } else {
+          document.getElementById('btn-man-prev').classList.remove('text-gray-400', 'cursor-not-allowed');
+          document.getElementById('btn-man-prev').classList.add('text-blue-500', 'hover:underline');
+        }
+
+        loadMandiriQuestion();
+      }
+    }
+
+    function toggleMandiriNextButton(show) {
+      const btnNext = document.getElementById('btn-man-next');
+      const btnFinish = document.getElementById('btn-man-finish');
+      
+      if (show) {
+        if (currentMandiriPage === totalMandiriPages) {
+          btnNext.classList.add('hidden');
+          btnFinish.classList.remove('hidden');
+        } else {
+          btnNext.classList.remove('hidden');
+          btnFinish.classList.add('hidden');
+        }
+      } else {
+        btnNext.classList.add('hidden');
+        btnFinish.classList.add('hidden');
+      }
+    }
+
+    // ================= REFLEKSI & KESIMPULAN LOGIC =================
+    function selectEmoji(btn, mood) {
+      document.querySelectorAll('.emoji-btn').forEach(b => {
+        b.className = "emoji-btn bg-white hover:scale-110 transition border-2 border-purple-100 w-12 h-12 rounded-xl text-2xl flex items-center justify-center";
+      });
+      btn.className = "emoji-btn bg-purple-200 scale-110 transition border-2 border-purple-500 w-12 h-12 rounded-xl text-2xl flex items-center justify-center";
+
+      const comments = {
+        '😟': '😟 Gak apa-apa! Matematika butuh proses latihan teratur. Kamu sudah berusaha luar biasa!',
+        '😐': '😐 Oke! Menarik sekali, pelan-pelan pasti kamu akan semakin jago!',
+        '😊': '😊 Keren! Kamu mulai menikmati tantangan eksponen hari ini!',
+        '😄': '😄 Luar biasa! Semangat belajarmu patut diacungi dua jempol! 👍👍',
+        '🤩': '🤩 WOW! Kamu luar biasa, bintang matematika eksponen sejati!'
+      };
+      document.getElementById('emoji-comment').innerText = comments[mood];
+    }
+
+    function generateCertificate() {
+      const nameInput = document.getElementById('student-name-input').value.trim();
+      const certName = document.getElementById('cert-name');
+      
+      if (nameInput !== "") {
+        certName.innerText = nameInput + " ⚡";
+        addPoints(10); // Reward for customized name
+      } else {
+        certName.innerText = "Pelajar Hebat Eksponen ⚡";
+      }
+    }
+
+    function restartBooster() {
+      // Reset scores and trackings
+      score = 0;
+      document.getElementById('current-score').innerText = score;
+      
+      for (let key in answeredTracker) {
+        answeredTracker[key] = false;
+      }
+      mandiriAnsweredTracker.fill(false);
+
+      // Reset Warmup elements
+      currentWarmupPage = 1;
+      document.querySelectorAll('.wu-subcard').forEach(card => card.className = "wu-subcard hidden");
+      document.getElementById('wu-card-1').className = "wu-subcard block";
+      document.getElementById('wu-progress').style.width = "25%";
+      document.getElementById('btn-wu-prev').disabled = true;
+      document.getElementById('btn-wu-prev').className = "text-xs md:text-sm font-bold text-gray-400 font-fun cursor-not-allowed";
+      document.getElementById('btn-wu-next').classList.add('hidden');
+      document.getElementById('btn-wu-finish').classList.add('hidden');
+      document.querySelectorAll('[id^="wu-ans-"]').forEach(inp => inp.value = "");
+      document.querySelectorAll('[id^="wu-fb-"]').forEach(fb => fb.classList.add('hidden'));
+
+      // Reset Latihan elements
+      currentLatihanPage = 1;
+      document.querySelectorAll('.lat-subcard').forEach(card => card.className = "lat-subcard hidden");
+      document.getElementById('lat-card-1').className = "lat-subcard block";
+      document.getElementById('lat-progress').style.width = "20%";
+      document.getElementById('btn-lat-prev').disabled = true;
+      document.getElementById('btn-lat-prev').className = "text-xs md:text-sm font-bold text-gray-400 font-fun cursor-not-allowed";
+      document.getElementById('btn-lat-next').classList.add('hidden');
+      document.getElementById('btn-lat-finish').classList.add('hidden');
+      document.querySelectorAll('[id^="lat-ans-"]').forEach(inp => inp.value = "");
+      document.querySelectorAll('[id^="lat-fb-"]').forEach(fb => fb.classList.add('hidden'));
+      document.querySelectorAll('.lat1-btn').forEach(btn => btn.className = "lat1-btn w-full text-left bg-white hover:bg-teal-50 p-3 rounded-xl border-2 border-teal-100 transition-all flex items-center gap-3 text-sm md:text-base");
+
+      // Reset Mandiri elements
+      currentMandiriPage = 1;
+      document.getElementById('mandiri-progress').style.width = "6.6%";
+      document.getElementById('btn-man-prev').disabled = true;
+      document.getElementById('btn-man-prev').className = "text-xs md:text-sm font-bold text-gray-400 font-fun cursor-not-allowed";
+      document.getElementById('btn-man-next').classList.add('hidden');
+      document.getElementById('btn-man-finish').classList.add('hidden');
+
+      // Reset reflection elements
+      document.getElementById('confusion-text').value = "";
+      document.getElementById('student-name-input').value = "";
+      document.querySelectorAll('.emoji-btn').forEach(b => {
+        b.className = "emoji-btn bg-white hover:scale-110 transition border-2 border-purple-100 w-12 h-12 rounded-xl text-2xl flex items-center justify-center";
+      });
+      document.getElementById('emoji-comment').innerText = "";
+
+      // Jump back to cover/tujuan
+      jumpToTab('tujuan');
+    }
+
+    // Initialize KaTeX Renderer & page elements on Load
+    document.addEventListener("DOMContentLoaded", function() {
+      // Automatic delimiters configuration
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false}
+        ],
+        throwOnError: false
+      });
+    });
+  </script>
+</body>
+</html>
