@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pembelajaran Interaktif Eksponen & Penguatan Soal Kompleks</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- MathJax for rendering LaTeX mathematical equations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .tab-btn.active {
+            border-bottom: 3px solid #3b82f6;
+            color: #1d4ed8;
+            font-weight: 700;
+        }
+        .custom-card {
+            transition: all 0.3s ease;
+        }
+        .custom-card:hover {
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen">
+
+    <!-- Header Navigation -->
+    <header class="bg-indigo-900 text-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center">
+            <div class="flex items-center space-x-3 mb-3 md:mb-0">
+                <i class="fa-solid font-bold text-yellow-400 text-2xl fa-superscript"></i>
+                <div>
+                    <h1 class="text-xl font-extrabold tracking-wide">Modul Interaktif Eksponen</h1>
+                    <p class="text-xs text-indigo-200">Penguatan Sifat-Sifat & Solusi Soal Kompleks</p>
+                </div>
+            </div>
+            <!-- Navigation Links -->
+            <nav class="flex flex-wrap gap-2 text-sm font-medium">
+                <button onclick="switchTab('tujuan')" id="tab-tujuan" class="tab-btn px-3 py-2 rounded-t-lg bg-indigo-800 hover:bg-indigo-700 active">Tujuan</button>
+                <button onclick="switchTab('warmup')" id="tab-warmup" class="tab-btn px-3 py-2 rounded-t-lg bg-indigo-800 hover:bg-indigo-700">Warm-Up</button>
+                <button onclick="switchTab('penerapan')" id="tab-penerapan" class="tab-btn px-3 py-2 rounded-t-lg bg-indigo-800 hover:bg-indigo-700">Aplikasi Nyata</button>
+                <button onclick="switchTab('materi')" id="tab-materi" class="tab-btn px-3 py-2 rounded-t-lg bg-indigo-800 hover:bg-indigo-700">Rangkuman Materi</button>
+                <button onclick="switchTab('soal')" id="tab-soal" class="tab-btn px-3 py-2 rounded-t-lg bg-indigo-800 hover:bg-indigo-700">Soal Kompleks</button>
+                <button onclick="switchTab('kuis')" id="tab-kuis" class="tab-btn px-3 py-2 rounded-t-lg bg-indigo-800 hover:bg-indigo-700">Evaluasi</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="max-w-6xl mx-auto px-4 py-8 flex-grow w-full">
+
+        <!-- TAB 1: TUJUAN PEMBELAJARAN -->
+        <section id="sec-tujuan" class="tab-content block space-y-6">
+            <div class="bg-gradient-to-r from-blue-600 to-indigo-700 text-white p-8 rounded-2xl shadow-xl">
+                <span class="bg-blue-400/30 text-blue-100 text-xs uppercase px-3 py-1 rounded-full font-semibold">Penguatan Materi</span>
+                <h2 class="text-3xl font-extrabold mt-3 mb-4">Penguasaan Konsep & Penyederhanaan Eksponen Kompleks</h2>
+                <p class="text-indigo-100 text-lg max-w-3xl leading-relaxed">
+                    Selamat datang! Setelah mempelajari dasar-dasar eksponen (perkalian, pembagian, pemangkatan, pangkat negatif, dan nol), modul ini dirancang khusus untuk memperkuat pemahamanmu melalui penyelesaian soal-soal aljabar eksponen berpangkat tinggi dan kompleks.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm custom-card">
+                    <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center text-xl font-bold mb-4">
+                        <i class="fa-solid fa-brain"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2 text-slate-800">1. Memperkuat Sifat Dasar</h3>
+                    <p class="text-slate-600 text-sm">Mengaitkan secara otomatis sifat perkalian, pembagian, dan pemangkatan eksponen pada basis konstan maupun variabel.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm custom-card">
+                    <div class="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-lg flex items-center justify-center text-xl font-bold mb-4">
+                        <i class="fa-solid fa-square-root-variable"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2 text-slate-800">2. Menyederhanakan Bentuk Kompleks</h3>
+                    <p class="text-slate-600 text-sm">Mampu memanipulasi bentuk pecahan aljabar eksponen ganda seperti \(\frac{(a^m b^n)^p}{a^x b^y}\) menjadi bentuk pangkat positif paling sederhana.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm custom-card">
+                    <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-lg flex items-center justify-center text-xl font-bold mb-4">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2 text-slate-800">3. Solusi Kontekstual & Akurat</h3>
+                    <p class="text-slate-600 text-sm">Menghindari jebakan tanda negatif seperti perbedaan \((-3)^4\) dan \(-4^4\), serta membedakan variabel basis berlainan.</p>
+                </div>
+            </div>
+
+            <div class="flex justify-end pt-4">
+                <button onclick="switchTab('warmup')" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-6 py-3 rounded-lg shadow-md transition flex items-center gap-2">
+                    Lanjut ke Warm-Up <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- TAB 2: WARM-UP (4 SOAL) -->
+        <section id="sec-warmup" class="tab-content hidden space-y-6">
+            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                <h2 class="text-2xl font-bold text-indigo-900 mb-2">Warm-Up Check: 4 Soal Kunci</h2>
+                <p class="text-slate-600 text-sm">Uji kesiapanmu sebelum masuk ke soal-soal aljabar yang lebih panjang. Pilih jawaban yang menurutmu benar!</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Question 1 -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm space-y-3">
+                    <div class="flex justify-between items-center">
+                        <span class="bg-amber-100 text-amber-800 text-xs font-semibold px-2.5 py-1 rounded">Soal Warm-Up 1</span>
+                        <span class="text-xs text-slate-400">Aturan Dasar Basis Sama</span>
+                    </div>
+                    <p class="font-medium text-slate-800">Berapakah hasil sederhana dari \( (2^3)^4 \times (2^5)^3 \)?</p>
+                    <div class="space-y-2 pt-2">
+                        <button onclick="checkWarmUp(1, 'A', this)" class="w-full text-left p-3 rounded-lg border border-slate-200 hover:bg-slate-50 transition text-sm flex justify-between items-center">
+                            <span>A. \(2^{27}\)</span>
+                            <i class="fa-regular fa-circle text-slate-400"></i>
+                        </button>
+                        <button onclick="checkWarmUp(1, 'B', this)" class="w-full text-left p-3 rounded-lg border border-slate-200 hover:bg-slate-50 transition text-sm flex justify-between items-center">
+                            <span>B. \(2^{60}\)</span>
+                            <i class="fa-regular fa-circle text-slate-400"></i>
+                        </button>
+                        <button onclick="checkWarmUp(1, 'C', this)" class="w-full text-left p-3 rounded-lg border border-slate-200 hover:bg-slate-50 transition text-sm flex justify-between items-center">
+                            <span>C. \(4^{27}\)</span>
+                            <i class="fa-regular fa-circle text-slate-400"></i>
+                        </button>
+                    </div>
+                    <div id="wu-feedback-1" class="hidden text-xs p-3 rounded-lg mt-2"></div>
+                </div>
+
+                <!-- Question 2 -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm space-y-3">
+                    <div class="flex justify-between items-center">
+                        <span class="bg-amber-100 text-amber-800 text-xs font-semibold px-2.5 py-1 rounded">Soal Warm-Up 2</span>
+                        <span class="text-xs text-slate-400">Hukum Tanda Negatif</span>
+                    </div>
+                    <p class="font-medium text-slate-800">Manakah nilai dari \((-3)^4\) dan \(-4^4\) berturut-turut?</p>
+                    <div class="space-y-2 pt-2">
+                        <button onclick="checkWarmUp(2, 'A', this)" class="w-full text-left p-3 rounded-lg border border-slate-200 hover:bg-slate-50 transition text-sm flex justify-between items-center">
+                            <span>A. \(-81\) dan \(-256\)</span>
+                            <i class="fa-regular fa-circle text-slate-400"></i>
+                        </button>
+                        <button onclick="checkWarmUp(2, 'B', this)" class="w-full text-left p-3 rounded-lg border border-slate-200 hover:bg-slate-50 transition text-sm flex justify-between items-center">
+                            <span>B. \(81\) dan \(-256\)</span>
+                            <i class="fa-regular fa-circle text-slate-400"></i>
+                        </button>
+                        <button onclick="checkWarmUp(2, 'C', this)" class="w-full text-left p-3 rounded-lg border border-slate-200 hover:bg-slate-50 transition text-sm flex justify-between items-center">
+                            <span>C. \(81\) dan \(256\)</span>
+                            <i class="fa-regular fa-circle text-slate-400"></i>
+                        </button>
+                    </div>
+                    <div id="wu-feedback-2" class="hidden text-xs p-3 rounded-lg mt-2"></div>
+                </div>
+
+                <!-- Question 3 -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm space-y-3">
+                    <div class="flex justify-between items-center">
+                        <span class="bg-amber-100 text-amber-800 text-xs font-semibold px-2.5 py-1 rounded">Soal Warm-Up 3</span>
+                        <span class="text-xs text-slate-400">Pangkat Negatif & Nol</span>
+                    </div>
+                    <p class="font-medium text-slate-800">Bentuk paling sederhana dari \((3g^{-2}h^4)(g^3)^0\) adalah...</p>
+                    <div class="space-y-2 pt-2">
+                        <button onclick="checkWarmUp(3, 'A', this)" class="w-full text-left p-3 rounded-lg border border-slate-200 hover:bg-slate-50 transition text-sm flex justify-between items-center">
+                            <span>A. \(\frac{3h^4}{g^2}\)</span>
+                            <i class="fa-regular fa-circle text-slate-400"></i>
+                        </button>
+                        <button onclick="checkWarmUp(3, 'B', this)" class="w-full text-left p-3 rounded-lg border border-slate-200 hover:bg-slate-50 transition text-sm flex justify-between items-center">
+                            <span>B. \(3g h^4\)</span>
+                            <i class="fa-regular fa-circle text-slate-400"></i>
+                        </button>
+                        <button onclick="checkWarmUp(3, 'C', this)" class="w-full text-left p-3 rounded-lg border border-slate-200 hover:bg-slate-50 transition text-sm flex justify-between items-center">
+                            <span>C. \(0\)</span>
+                            <i class="fa-regular fa-circle text-slate-400"></i>
+                        </button>
+                    </div>
+                    <div id="wu-feedback-3" class="hidden text-xs p-3 rounded-lg mt-2"></div>
+                </div>
+
+                <!-- Question 4 -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm space-y-3">
+                    <div class="flex justify-between items-center">
+                        <span class="bg-amber-100 text-amber-800 text-xs font-semibold px-2.5 py-1 rounded">Soal Warm-Up 4</span>
+                        <span class="text-xs text-slate-400">Pembagian Sederhana</span>
+                    </div>
+                    <p class="font-medium text-slate-800">Berapa hasil dari \((5^2)^3 \div (5^4)^2\)?</p>
+                    <div class="space-y-2 pt-2">
+                        <button onclick="checkWarmUp(4, 'A', this)" class="w-full text-left p-3 rounded-lg border border-slate-200 hover:bg-slate-50 transition text-sm flex justify-between items-center">
+                            <span>A. \(5^2 = 25\)</span>
+                            <i class="fa-regular fa-circle text-slate-400"></i>
+                        </button>
+                        <button onclick="checkWarmUp(4, 'B', this)" class="w-full text-left p-3 rounded-lg border border-slate-200 hover:bg-slate-50 transition text-sm flex justify-between items-center">
+                            <span>B. \(\frac{1}{25}\)</span>
+                            <i class="fa-regular fa-circle text-slate-400"></i>
+                        </button>
+                        <button onclick="checkWarmUp(4, 'C', this)" class="w-full text-left p-3 rounded-lg border border-slate-200 hover:bg-slate-50 transition text-sm flex justify-between items-center">
+                            <span>C. \(5^{-14}\)</span>
+                            <i class="fa-regular fa-circle text-slate-400"></i>
+                        </button>
+                    </div>
+                    <div id="wu-feedback-4" class="hidden text-xs p-3 rounded-lg mt-2"></div>
+                </div>
+            </div>
+
+            <div class="flex justify-between items-center pt-4">
+                <button onclick="switchTab('tujuan')" class="text-slate-600 hover:text-slate-900 font-medium px-4 py-2">
+                    <i class="fa-solid fa-arrow-left"></i> Kembali
+                </button>
+                <button onclick="switchTab('penerapan')" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-6 py-3 rounded-lg shadow-md transition flex items-center gap-2">
+                    Lanjut ke Penerapan Nyata <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- TAB 3: PENERAPAN NYATA -->
+        <section id="sec-penerapan" class="tab-content hidden space-y-6">
+            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                <h2 class="text-2xl font-bold text-indigo-900 mb-2">Penerapan Eksponen dalam Dunia Nyata</h2>
+                <p class="text-slate-600">Eksponen bukan sekadar teori angka, melainkan bahasa utama untuk menghitung pertumbuhan pesat dan peluruhan cepat di alam.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Simulasi 1: Biologi -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-emerald-100 text-emerald-600 rounded-lg flex items-center justify-center font-bold">
+                            <i class="fa-solid fa-bacteria"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-slate-800">1. Pertumbuhan Bakteri (Pembelahan)</h3>
+                            <p class="text-xs text-slate-500">Model Eksponensial: \(N = N_0 \times 2^t\)</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-slate-600">
+                        Sebuah bakteri membelah menjadi 2 setiap jam. Jika awal terdapat 5 bakteri (\(N_0 = 5\)), berapa jumlah bakteri setelah \(t\) jam?
+                    </p>
+                    <!-- Interaktif Bakteri -->
+                    <div class="bg-slate-50 p-4 rounded-lg space-y-3">
+                        <label class="block text-xs font-semibold text-slate-700">Pilih Waktu (\(t\) jam): <span id="hours-val" class="text-indigo-600 font-bold">3 jam</span></label>
+                        <input type="range" id="bakteri-range" min="0" max="8" value="3" class="w-full accent-indigo-600" oninput="calcBakteri(this.value)">
+                        <div class="flex justify-between items-center pt-2 border-t border-slate-200 text-sm">
+                            <span>Total Bakteri:</span>
+                            <span id="bakteri-result" class="font-bold text-indigo-700 text-lg">40 Bakteri</span>
+                        </div>
+                        <p class="text-xs text-slate-500 italic" id="bakteri-formula">Perhitungan: \(5 \times 2^3 = 5 \times 8 = 40\)</p>
+                    </div>
+                </div>
+
+                <!-- Aplikasi 2: Teknologi / Sains -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center font-bold">
+                            <i class="fa-solid fa-microchip"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-slate-800">2. Komputer & Penyimpanan Digital</h3>
+                            <p class="text-xs text-slate-500">Basis 2 (\(2^n\)) dalam Byte</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-slate-600">
+                        Memori komputer dihitung menggunakan kelipatan berpangkat dari angka 2:
+                    </p>
+                    <ul class="text-xs space-y-2 text-slate-700 bg-slate-50 p-3 rounded-lg">
+                        <li class="flex justify-between"><span>1 Kilobyte (KB)</span> <span class="font-mono text-indigo-600">\(2^{10}\) Bytes = 1.024 Bytes</span></li>
+                        <li class="flex justify-between"><span>1 Megabyte (MB)</span> <span class="font-mono text-indigo-600">\(2^{20}\) Bytes = 1.048.576 Bytes</span></li>
+                        <li class="flex justify-between"><span>1 Gigabyte (GB)</span> <span class="font-mono text-indigo-600">\(2^{30}\) Bytes = 1.073.741.824 Bytes</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="flex justify-between items-center pt-4">
+                <button onclick="switchTab('warmup')" class="text-slate-600 hover:text-slate-900 font-medium px-4 py-2">
+                    <i class="fa-solid fa-arrow-left"></i> Kembali
+                </button>
+                <button onclick="switchTab('materi')" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-6 py-3 rounded-lg shadow-md transition flex items-center gap-2">
+                    Lanjut ke Rangkuman Materi <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- TAB 4: RANGKUMAN MATERI & SIFAT -->
+        <section id="sec-materi" class="tab-content hidden space-y-6">
+            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                <h2 class="text-2xl font-bold text-indigo-900 mb-2">Rangkuman Sifat-Sifat Eksponen</h2>
+                <p class="text-slate-600 text-sm">Pahami 6 aturan emas eksponen yang mendasari semua penyederhanaan aljabar kompleks.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Sifat 1 -->
+                <div class="bg-white p-5 rounded-xl border-l-4 border-blue-500 shadow-sm space-y-2">
+                    <span class="text-xs font-bold text-blue-600 uppercase">1. Perkalian Basis Sama</span>
+                    <div class="text-lg font-bold text-slate-800">\(a^m \times a^n = a^{m+n}\)</div>
+                    <p class="text-xs text-slate-500">Pangkat dijumlahkan jika basisnya sama.</p>
+                    <div class="bg-slate-50 p-2 rounded text-xs text-slate-700">Contoh: \(2^5 \times 2^3 = 2^{5+3} = 2^8\)</div>
+                </div>
+
+                <!-- Sifat 2 -->
+                <div class="bg-white p-5 rounded-xl border-l-4 border-indigo-500 shadow-sm space-y-2">
+                    <span class="text-xs font-bold text-indigo-600 uppercase">2. Pembagian Basis Sama</span>
+                    <div class="text-lg font-bold text-slate-800">\(a^m \div a^n = a^{m-n}\)</div>
+                    <p class="text-xs text-slate-500">Pangkat dikurangi (pembilang - penyebut).</p>
+                    <div class="bg-slate-50 p-2 rounded text-xs text-slate-700">Contoh: \(2^5 \div 2^3 = 2^{5-3} = 2^2 = 4\)</div>
+                </div>
+
+                <!-- Sifat 3 -->
+                <div class="bg-white p-5 rounded-xl border-l-4 border-purple-500 shadow-sm space-y-2">
+                    <span class="text-xs font-bold text-purple-600 uppercase">3. Pemangkatan (Power of Power)</span>
+                    <div class="text-lg font-bold text-slate-800">\((a^m)^n = a^{m \times n}\)</div>
+                    <p class="text-xs text-slate-500">Pangkat di dalam dan di luar dikalikan.</p>
+                    <div class="bg-slate-50 p-2 rounded text-xs text-slate-700">Contoh: \((2^5)^3 = 2^{5 \times 3} = 2^{15}\)</div>
+                </div>
+
+                <!-- Sifat 4 -->
+                <div class="bg-white p-5 rounded-xl border-l-4 border-rose-500 shadow-sm space-y-2">
+                    <span class="text-xs font-bold text-rose-600 uppercase">4. Pangkat Negatif</span>
+                    <div class="text-lg font-bold text-slate-800">\(a^{-n} = \frac{1}{a^n}\)</div>
+                    <p class="text-xs text-slate-500">Pangkat negatif berpindah posisi ke penyebut.</p>
+                    <div class="bg-slate-50 p-2 rounded text-xs text-slate-700">Contoh: \(2^{-5} = \frac{1}{2^5} = \frac{1}{32}\)</div>
+                </div>
+
+                <!-- Sifat 5 -->
+                <div class="bg-white p-5 rounded-xl border-l-4 border-amber-500 shadow-sm space-y-2">
+                    <span class="text-xs font-bold text-amber-600 uppercase">5. Pangkat Nol</span>
+                    <div class="text-lg font-bold text-slate-800">\(a^0 = 1 \quad (a \neq 0)\)</div>
+                    <p class="text-xs text-slate-500">Setiap bilangan non-nol dipangkatkan 0 bernilai 1.</p>
+                    <div class="bg-slate-50 p-2 rounded text-xs text-slate-700">Contoh: \((g^3)^0 = 1\)</div>
+                </div>
+
+                <!-- Sifat 6 -->
+                <div class="bg-white p-5 rounded-xl border-l-4 border-emerald-500 shadow-sm space-y-2">
+                    <span class="text-xs font-bold text-emerald-600 uppercase">6. Pangkat Perkalian/Pecahan</span>
+                    <div class="text-lg font-bold text-slate-800">\((a b)^n = a^n b^n\)</div>
+                    <p class="text-xs text-slate-500">Pangkat didistribusikan ke setiap faktor di dalamnya.</p>
+                    <div class="bg-slate-50 p-2 rounded text-xs text-slate-700">Contoh: \((3a^2 b^2)^3 = 3^3 a^6 b^6 = 27a^6 b^6\)</div>
+                </div>
+            </div>
+
+            <div class="flex justify-between items-center pt-4">
+                <button onclick="switchTab('penerapan')" class="text-slate-600 hover:text-slate-900 font-medium px-4 py-2">
+                    <i class="fa-solid fa-arrow-left"></i> Kembali
+                </button>
+                <button onclick="switchTab('soal')" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-6 py-3 rounded-lg shadow-md transition flex items-center gap-2">
+                    Lanjut ke Soal Kompleks <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- TAB 5: PENGUATAN SOAL KOMPLEKS & PEMBAHASAN STEP-BY-STEP -->
+        <section id="sec-soal" class="tab-content hidden space-y-6">
+            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex justify-between items-center flex-wrap gap-4">
+                <div>
+                    <h2 class="text-2xl font-bold text-indigo-900 mb-1">Penguatan & Pembahasan Soal Kompleks</h2>
+                    <p class="text-slate-600 text-sm">Berikut adalah pembahasan mendalam dari latihan soal utama dan variasi bertingkat.</p>
+                </div>
+                <div class="flex gap-2">
+                    <button onclick="filterSoal('all')" class="text-xs bg-indigo-100 text-indigo-700 px-3 py-1.5 rounded-full font-semibold border border-indigo-200">Semua Soal</button>
+                    <button onclick="filterSoal('utama')" class="text-xs bg-slate-100 text-slate-700 px-3 py-1.5 rounded-full font-semibold border border-slate-200">Soal Utama</button>
+                    <button onclick="filterSoal('variasi')" class="text-xs bg-slate-100 text-slate-700 px-3 py-1.5 rounded-full font-semibold border border-slate-200">Variasi Kompleks</button>
+                </div>
+            </div>
+
+            <!-- List Soal Cards -->
+            <div class="space-y-6">
+
+                <!-- Soal 1 (Utama) -->
+                <div class="soal-item utama bg-white p-6 rounded-xl border border-slate-200 shadow-sm space-y-4">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <span class="bg-indigo-100 text-indigo-800 text-xs font-bold px-2.5 py-1 rounded">Soal Utama #1</span>
+                            <h3 class="font-bold text-lg text-slate-800 mt-2">Sederhanakan Bentuk Pecahan Eksponen Berganda:</h3>
+                        </div>
+                        <span class="text-xs text-slate-400">Variabel Multi-Suku</span>
+                    </div>
+
+                    <div class="bg-slate-50 p-4 rounded-lg font-mono text-center text-lg text-indigo-900">
+                        \[ \frac{2(a^3 b^2)(a^3)^2}{4 a b^3} \]
+                    </div>
+
+                    <!-- Toggle Pembahasan -->
+                    <button onclick="toggleSolution('sol-1')" class="text-xs font-semibold text-indigo-600 hover:text-indigo-800 flex items-center gap-1">
+                        <i class="fa-solid fa-eye"></i> Tampilkan / Sembunyikan Pembahasan Step-by-Step
+                    </button>
+
+                    <div id="sol-1" class="hidden bg-indigo-50/60 p-4 rounded-lg border border-indigo-100 space-y-2 text-sm text-slate-700">
+                        <p class="font-bold text-indigo-900 text-xs uppercase">Langkah Penyelesaian:</p>
+                        <ol class="list-decimal list-inside space-y-1.5">
+                            <li>Sederhanakan pemangkatan di pembilang: \((a^3)^2 = a^6\).</li>
+                            <li>Bagi koefisien angka: \(\frac{2}{4} = \frac{1}{2}\).</li>
+                            <li>Gabungkan variabel pembilang: \(a^3 \cdot a^6 \cdot b^2 = a^{3+6} b^2 = a^9 b^2\).</li>
+                            <li>Kurangkan dengan pangkat penyebut (\(a^1 b^3\)):
+                                \[ \frac{a^9 b^2}{2 a b^3} = \frac{1}{2} a^{9-1} b^{2-3} = \frac{1}{2} a^8 b^{-1} \]
+                            </li>
+                            <li>Ubah pangkat negatif menjadi positif: <strong>\(\frac{a^8}{2b}\)</strong>.</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Soal 2 (Variasi Baru Kompleks) -->
+                <div class="soal-item variasi bg-white p-6 rounded-xl border border-slate-200 shadow-sm space-y-4">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <span class="bg-purple-100 text-purple-800 text-xs font-bold px-2.5 py-1 rounded">Variasi Kompleks #1</span>
+                            <h3 class="font-bold text-lg text-slate-800 mt-2">Soal Tantangan (Tingkat Lanjut):</h3>
+                        </div>
+                        <span class="text-xs text-slate-400">Pangkat Negatif & Luar Pecahan</span>
+                    </div>
+
+                    <div class="bg-slate-50 p-4 rounded-lg font-mono text-center text-lg text-indigo-900">
+                        \[ \left( \frac{3(x^2 y^{-3})^2 (x^4 y^2)}{9 x^{-3} y^5} \right)^{-1} \]
+                    </div>
+
+                    <!-- Toggle Pembahasan -->
+                    <button onclick="toggleSolution('sol-2')" class="text-xs font-semibold text-indigo-600 hover:text-indigo-800 flex items-center gap-1">
+                        <i class="fa-solid fa-eye"></i> Tampilkan / Sembunyikan Pembahasan Step-by-Step
+                    </button>
+
+                    <div id="sol-2" class="hidden bg-indigo-50/60 p-4 rounded-lg border border-indigo-100 space-y-2 text-sm text-slate-700">
+                        <p class="font-bold text-indigo-900 text-xs uppercase">Langkah Penyelesaian:</p>
+                        <ol class="list-decimal list-inside space-y-1.5">
+                            <li>Sederhanakan bagian dalam kurung terlebih dahulu.
+                                <br>Pembilang: \(3 \cdot (x^4 y^{-6}) \cdot (x^4 y^2) = 3 x^{4+4} y^{-6+2} = 3 x^8 y^{-4}\).
+                            </li>
+                            <li>Penyebut: \(9 x^{-3} y^5\).</li>
+                            <li>Bagi pembilang dengan penyebut di dalam kurung:
+                                <br>Koefisien: \(\frac{3}{9} = \frac{1}{3}\).
+                                <br>Eksponen \(x\): \(x^{8 - (-3)} = x^{11}\).
+                                <br>Eksponen \(y\): \(y^{-4 - 5} = y^{-9}\).
+                                <br>Bentuk dalam kurung: \(\frac{x^{11} y^{-9}}{3}\).
+                            </li>
+                            <li>Terapkan pangkat \(-1\) di luar kurung (balikkan posisi pecahan & tanda pangkat):
+                                \[ \left( \frac{x^{11} y^{-9}}{3} \right)^{-1} = \frac{3}{x^{11} y^{-9}} = \frac{3 y^9}{x^{11}} \]
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Soal 3 (Utama) -->
+                <div class="soal-item utama bg-white p-6 rounded-xl border border-slate-200 shadow-sm space-y-4">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <span class="bg-indigo-100 text-indigo-800 text-xs font-bold px-2.5 py-1 rounded">Soal Utama #2</span>
+                            <h3 class="font-bold text-lg text-slate-800 mt-2">Sederhanakan Bentuk Pangkat Suku Banyak:</h3>
+                        </div>
+                        <span class="text-xs text-slate-400">Pembagian Pangkat Luar</span>
+                    </div>
+
+                    <div class="bg-slate-50 p-4 rounded-lg font-mono text-center text-lg text-indigo-900">
+                        \[ \frac{(2a^2 b^3)^2}{a^3 \cdot a^2} \]
+                    </div>
+
+                    <button onclick="toggleSolution('sol-3')" class="text-xs font-semibold text-indigo-600 hover:text-indigo-800 flex items-center gap-1">
+                        <i class="fa-solid fa-eye"></i> Tampilkan / Sembunyikan Pembahasan Step-by-Step
+                    </button>
+
+                    <div id="sol-3" class="hidden bg-indigo-50/60 p-4 rounded-lg border border-indigo-100 space-y-2 text-sm text-slate-700">
+                        <p class="font-bold text-indigo-900 text-xs uppercase">Langkah Penyelesaian:</p>
+                        <ol class="list-decimal list-inside space-y-1.5">
+                            <li>Urai pembilang dengan mengalikan semua pangkat dalam dengan \(2\):
+                                <br>\( (2a^2 b^3)^2 = 2^2 \cdot a^{2 \times 2} \cdot b^{3 \times 2} = 4 a^4 b^6 \).
+                            </li>
+                            <li>Gabungkan pembagi (penyebut): \(a^3 \cdot a^2 = a^{3+2} = a^5\).</li>
+                            <li>Bagi variabel \(a\): \(\frac{4 a^4 b^6}{a^5} = 4 a^{4-5} b^6 = 4 a^{-1} b^6\).</li>
+                            <li>Ubah menjadi bentuk pangkat positif: <strong>\(\frac{4b^6}{a}\)</strong>.</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Soal 4 (Variasi Baru Kompleks) -->
+                <div class="soal-item variasi bg-white p-6 rounded-xl border border-slate-200 shadow-sm space-y-4">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <span class="bg-purple-100 text-purple-800 text-xs font-bold px-2.5 py-1 rounded">Variasi Kompleks #2</span>
+                            <h3 class="font-bold text-lg text-slate-800 mt-2">Soal Campuran Konstan & Variabel Multi-Suku:</h3>
+                        </div>
+                        <span class="text-xs text-slate-400">Pecahan Bertingkat</span>
+                    </div>
+
+                    <div class="bg-slate-50 p-4 rounded-lg font-mono text-center text-lg text-indigo-900">
+                        \[ \frac{(4p^{-2} q^3)^3}{(2p^3 q^{-1})^2 \cdot (p^{-4})} \]
+                    </div>
+
+                    <button onclick="toggleSolution('sol-4')" class="text-xs font-semibold text-indigo-600 hover:text-indigo-800 flex items-center gap-1">
+                        <i class="fa-solid fa-eye"></i> Tampilkan / Sembunyikan Pembahasan Step-by-Step
+                    </button>
+
+                    <div id="sol-4" class="hidden bg-indigo-50/60 p-4 rounded-lg border border-indigo-100 space-y-2 text-sm text-slate-700">
+                        <p class="font-bold text-indigo-900 text-xs uppercase">Langkah Penyelesaian:</p>
+                        <ol class="list-decimal list-inside space-y-1.5">
+                            <li>Pembilang: \(4^3 \cdot p^{-6} \cdot q^9 = 64 p^{-6} q^9\).</li>
+                            <li>Penyebut: \((2^2 \cdot p^6 \cdot q^{-2}) \cdot p^{-4} = 4 p^{6+(-4)} q^{-2} = 4 p^2 q^{-2}\).</li>
+                            <li>Bagi Angka: \(\frac{64}{4} = 16\).</li>
+                            <li>Bagi Variabel \(p\): \(p^{-6 - 2} = p^{-8}\).</li>
+                            <li>Bagi Variabel \(q\): \(q^{9 - (-2)} = q^{11}\).</li>
+                            <li>Hasil Akhir: \(16 p^{-8} q^{11} =\) <strong>\(\frac{16 q^{11}}{p^8}\)</strong>.</li>
+                        </ol>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="flex justify-between items-center pt-4">
+                <button onclick="switchTab('materi')" class="text-slate-600 hover:text-slate-900 font-medium px-4 py-2">
+                    <i class="fa-solid fa-arrow-left"></i> Kembali
+                </button>
+                <button onclick="switchTab('kuis')" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-6 py-3 rounded-lg shadow-md transition flex items-center gap-2">
+                    Uji Pemahaman di Kuis Evaluasi <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- TAB 6: EVALUASI / KUIS INTERAKTIF -->
+        <section id="sec-kuis" class="tab-content hidden space-y-6">
+            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex justify-between items-center flex-wrap gap-4">
+                <div>
+                    <h2 class="text-2xl font-bold text-indigo-900 mb-1">Evaluasi Mandiri Eksponen</h2>
+                    <p class="text-slate-600 text-sm">Uji seberapa jauh penguasaanmu terhadap penyederhanaan eksponen kompleks.</p>
+                </div>
+                <div id="quiz-score-badge" class="bg-indigo-50 border border-indigo-200 text-indigo-800 font-bold px-4 py-2 rounded-xl text-sm">
+                    Skor: <span id="current-score">0</span> / 30
+                </div>
+            </div>
+
+            <form id="quiz-form" class="space-y-6">
+
+                <!-- Kuis 1 -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm space-y-3">
+                    <div class="flex justify-between items-center">
+                        <span class="bg-slate-100 text-slate-800 text-xs font-bold px-2.5 py-1 rounded">Soal 1 (Skor 10)</span>
+                        <span class="text-xs text-slate-400">Perkalian & Pangkat Negatif</span>
+                    </div>
+                    <p class="font-medium text-slate-800">Sederhanakan bentuk aljabar: \((m^2 n^{-4})(m^5 n^2)\)</p>
+                    <div class="space-y-2 pt-2 text-sm">
+                        <label class="flex items-center space-x-3 p-3 rounded-lg border border-slate-200 cursor-pointer hover:bg-slate-50">
+                            <input type="radio" name="q1" value="A" class="accent-indigo-600">
+                            <span>A. \(\frac{m^7}{n^2}\)</span>
+                        </label>
+                        <label class="flex items-center space-x-3 p-3 rounded-lg border border-slate-200 cursor-pointer hover:bg-slate-50">
+                            <input type="radio" name="q1" value="B" class="accent-indigo-600">
+                            <span>B. \(m^{10} n^{-8}\)</span>
+                        </label>
+                        <label class="flex items-center space-x-3 p-3 rounded-lg border border-slate-200 cursor-pointer hover:bg-slate-50">
+                            <input type="radio" name="q1" value="C" class="accent-indigo-600">
+                            <span>C. \(\frac{m^3}{n^2}\)</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Kuis 2 -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm space-y-3">
+                    <div class="flex justify-between items-center">
+                        <span class="bg-slate-100 text-slate-800 text-xs font-bold px-2.5 py-1 rounded">Soal 2 (Skor 10)</span>
+                        <span class="text-xs text-slate-400">Pembagian Sederhana</span>
+                    </div>
+                    <p class="font-medium text-slate-800">Sederhanakan pecahan aljabar berikut: \(\frac{a^5 b^2}{3 a^2 b^5}\)</p>
+                    <div class="space-y-2 pt-2 text-sm">
+                        <label class="flex items-center space-x-3 p-3 rounded-lg border border-slate-200 cursor-pointer hover:bg-slate-50">
+                            <input type="radio" name="q2" value="A" class="accent-indigo-600">
+                            <span>A. \(\frac{3a^3}{b^3}\)</span>
+                        </label>
+                        <label class="flex items-center space-x-3 p-3 rounded-lg border border-slate-200 cursor-pointer hover:bg-slate-50">
+                            <input type="radio" name="q2" value="B" class="accent-indigo-600">
+                            <span>B. \(\frac{a^3}{3b^3}\)</span>
+                        </label>
+                        <label class="flex items-center space-x-3 p-3 rounded-lg border border-slate-200 cursor-pointer hover:bg-slate-50">
+                            <input type="radio" name="q2" value="C" class="accent-indigo-600">
+                            <span>C. \(\frac{1}{3} a^7 b^7\)</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Kuis 3 -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm space-y-3">
+                    <div class="flex justify-between items-center">
+                        <span class="bg-slate-100 text-slate-800 text-xs font-bold px-2.5 py-1 rounded">Soal 3 (Skor 10)</span>
+                        <span class="text-xs text-slate-400">Kompleks Pembagian & Pemangkatan</span>
+                    </div>
+                    <p class="font-medium text-slate-800">Bentuk sederhana dari \(\frac{3(x^2 y^3)(x^4)^2}{6 x y^2}\) adalah...</p>
+                    <div class="space-y-2 pt-2 text-sm">
+                        <label class="flex items-center space-x-3 p-3 rounded-lg border border-slate-200 cursor-pointer hover:bg-slate-50">
+                            <input type="radio" name="q3" value="A" class="accent-indigo-600">
+                            <span>A. \(\frac{1}{2} x^9 y\)</span>
+                        </label>
+                        <label class="flex items-center space-x-3 p-3 rounded-lg border border-slate-200 cursor-pointer hover:bg-slate-50">
+                            <input type="radio" name="q3" value="B" class="accent-indigo-600">
+                            <span>B. \(x^{10} y\)</span>
+                        </label>
+                        <label class="flex items-center space-x-3 p-3 rounded-lg border border-slate-200 cursor-pointer hover:bg-slate-50">
+                            <input type="radio" name="q3" value="C" class="accent-indigo-600">
+                            <span>C. \(\frac{x^9 y}{2}\)</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="flex justify-center pt-2">
+                    <button type="button" onclick="submitQuiz()" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-8 py-3 rounded-xl shadow-lg transition transform hover:-translate-y-0.5">
+                        Submit & Periksa Jawaban
+                    </button>
+                </div>
+            </form>
+
+            <!-- Quiz Result Modal / Box -->
+            <div id="quiz-result" class="hidden bg-emerald-50 border border-emerald-200 p-6 rounded-2xl text-center space-y-3">
+                <i class="fa-solid fa-trophy text-4xl text-amber-500"></i>
+                <h3 class="text-xl font-bold text-emerald-900">Hasil Evaluasi Kamu!</h3>
+                <p id="quiz-msg" class="text-emerald-700 text-sm"></p>
+                <button onclick="resetQuiz()" class="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-5 py-2 rounded-lg text-sm transition">
+                    Coba Lagi Kuis
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-6 text-center text-xs border-t border-slate-800">
+        <div class="max-w-6xl mx-auto px-4">
+            <p>© Pembelajaran Interaktif Eksponen. Dibuat untuk Penguatan Aljabar & Solusi Soal Kompleks.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // Tab Navigation Logic
+        function switchTab(tabId) {
+            // Hide all tab contents
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.add('hidden'));
+
+            // Reset active states on navigation buttons
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('active', 'bg-indigo-900');
+                btn.classList.add('bg-indigo-800');
+            });
+
+            // Show selected tab content
+            const activeContent = document.getElementById('sec-' + tabId);
+            if (activeContent) {
+                activeContent.classList.remove('hidden');
+            }
+
+            // Set active state on button
+            const activeBtn = document.getElementById('tab-' + tabId);
+            if (activeBtn) {
+                activeBtn.classList.add('active');
+            }
+
+            // Re-render MathJax formula if needed
+            if (window.MathJax) {
+                MathJax.typesetPromise();
+            }
+        }
+
+        // Warm Up Questions Checking
+        function checkWarmUp(questionNum, selectedOption, element) {
+            const answers = {
+                1: { correct: 'A', explain: 'Benar! (2^3)^4 = 2^12, dan (2^5)^3 = 2^15. Maka 2^12 x 2^15 = 2^(12+15) = 2^27.' },
+                2: { correct: 'B', explain: 'Benar! (-3)^4 = (-3)x(-3)x(-3)x(-3) = 81. Sedangkan -4^4 = -(4x4x4x4) = -256.' },
+                3: { correct: 'A', explain: 'Benar! Karena (g^3)^0 = 1, maka 3 g^-2 h^4 (1) = 3h^4 / g^2.' },
+                4: { correct: 'B', explain: 'Benar! (5^2)^3 = 5^6 dan (5^4)^2 = 5^8. Maka 5^6 / 5^8 = 5^-2 = 1/25.' }
+            };
+
+            const feedbackEl = document.getElementById(`wu-feedback-${questionNum}`);
+            const parent = element.parentElement;
+            const buttons = parent.querySelectorAll('button');
+
+            // Reset buttons styling
+            buttons.forEach(btn => {
+                btn.classList.remove('border-emerald-500', 'bg-emerald-50', 'border-rose-500', 'bg-rose-50');
+            });
+
+            const qData = answers[questionNum];
+            feedbackEl.classList.remove('hidden', 'bg-emerald-100', 'text-emerald-800', 'bg-rose-100', 'text-rose-800');
+
+            if (selectedOption === qData.correct) {
+                element.classList.add('border-emerald-500', 'bg-emerald-50');
+                feedbackEl.classList.add('bg-emerald-100', 'text-emerald-800');
+                feedbackEl.innerHTML = `<i class="fa-solid fa-circle-check"></i> ${qData.explain}`;
+            } else {
+                element.classList.add('border-rose-500', 'bg-rose-50');
+                feedbackEl.classList.add('bg-rose-100', 'text-rose-800');
+                feedbackEl.innerHTML = `<i class="fa-solid fa-circle-xmark"></i> Kurang tepat. Coba periksa kembali sifat eksponennya!`;
+            }
+
+            if (window.MathJax) {
+                MathJax.typesetPromise();
+            }
+        }
+
+        // Real World Interactive Simulation: Bakteri
+        function calcBakteri(val) {
+            document.getElementById('hours-val').innerText = val + ' jam';
+            const total = 5 * Math.pow(2, val);
+            document.getElementById('bakteri-result').innerText = total.toLocaleString('id-ID') + ' Bakteri';
+            document.getElementById('bakteri-formula').innerHTML = `Perhitungan: \\(5 \\times 2^{${val}} = 5 \\times ${Math.pow(2, val)} = ${total}\\)`;
+            
+            if (window.MathJax) {
+                MathJax.typesetPromise();
+            }
+        }
+
+        // Toggle Solutions in Soal Kompleks
+        function toggleSolution(id) {
+            const sol = document.getElementById(id);
+            if (sol.classList.contains('hidden')) {
+                sol.classList.remove('hidden');
+            } else {
+                sol.classList.add('hidden');
+            }
+        }
+
+        // Filter Soal (Catatan Kinan vs Variasi Baru)
+        function filterSoal(category) {
+            const allItems = document.querySelectorAll('.soal-item');
+            allItems.forEach(item => {
+                if (category === 'all') {
+                    item.classList.remove('hidden');
+                } else if (item.classList.contains(category)) {
+                    item.classList.remove('hidden');
+                } else {
+                    item.classList.add('hidden');
+                }
+            });
+        }
+
+        // Quiz Handling
+        function submitQuiz() {
+            let score = 0;
+            const answers = { q1: 'A', q2: 'B', q3: 'C' };
+
+            const form = document.getElementById('quiz-form');
+            const q1Val = form.q1.value;
+            const q2Val = form.q2.value;
+            const q3Val = form.q3.value;
+
+            if (!q1Val || !q2Val || !q3Val) {
+                alert('Harap jawab semua soal kuis terlebih dahulu!');
+                return;
+            }
+
+            if (q1Val === answers.q1) score += 10;
+            if (q2Val === answers.q2) score += 10;
+            if (q3Val === answers.q3) score += 10;
+
+            document.getElementById('current-score').innerText = score;
+            const resultBox = document.getElementById('quiz-result');
+            const msgBox = document.getElementById('quiz-msg');
+            resultBox.classList.remove('hidden');
+
+            if (score === 30) {
+                msgBox.innerText = 'Sempurna! Kamu telah menguasai konsep dan penyederhanaan eksponen kompleks dengan sangat baik.';
+            } else if (score >= 20) {
+                msgBox.innerText = 'Bagus sekali! Pemahamanmu sudah kuat. Tinjau kembali soal yang salah untuk hasil maksimal.';
+            } else {
+                msgBox.innerText = 'Tetap semangat! Pelajari kembali rangkuman sifat-sifat eksponen dan contoh soal kompleks di menu sebelumnya.';
+            }
+
+            // Scroll to result
+            resultBox.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function resetQuiz() {
+            document.getElementById('quiz-form').reset();
+            document.getElementById('quiz-result').classList.add('hidden');
+            document.getElementById('current-score').innerText = '0';
+        }
+    </script>
+</body>
+</html>
